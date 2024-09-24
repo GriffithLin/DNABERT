@@ -1,0 +1,267 @@
+WARNING:__main__:Process rank: -1, device: cuda, n_gpu: 2, distributed training: False, 16-bits training: False
+INFO:transformers.configuration_utils:loading configuration file /data3/linming/DNABERT/examples/embeding_model/6-new-12w-0/config.json
+INFO:transformers.configuration_utils:Model config BertConfig {
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "bos_token_id": 0,
+  "do_sample": false,
+  "eos_token_ids": 0,
+  "finetuning_task": "dnaprom",
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "id2label": {
+    "0": "LABEL_0",
+    "1": "LABEL_1"
+  },
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "is_decoder": false,
+  "label2id": {
+    "LABEL_0": 0,
+    "LABEL_1": 1
+  },
+  "layer_norm_eps": 1e-12,
+  "length_penalty": 1.0,
+  "max_length": 20,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_beams": 1,
+  "num_hidden_layers": 12,
+  "num_labels": 2,
+  "num_return_sequences": 1,
+  "num_rnn_layer": 1,
+  "output_attentions": false,
+  "output_hidden_states": true,
+  "output_past": true,
+  "pad_token_id": 0,
+  "pruned_heads": {},
+  "repetition_penalty": 1.0,
+  "rnn": "lstm",
+  "rnn_dropout": 0.0,
+  "rnn_hidden": 768,
+  "split": 10,
+  "temperature": 1.0,
+  "top_k": 50,
+  "top_p": 1.0,
+  "torchscript": false,
+  "type_vocab_size": 2,
+  "use_bfloat16": false,
+  "vocab_size": 4101
+}
+
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): raw.githubusercontent.com:443
+DEBUG:urllib3.connectionpool:https://raw.githubusercontent.com:443 "HEAD /jerryji1993/DNABERT/master/src/transformers/dnabert-config/bert-config-6/vocab.txt HTTP/1.1" 200 0
+INFO:transformers.tokenization_utils:loading file https://raw.githubusercontent.com/jerryji1993/DNABERT/master/src/transformers/dnabert-config/bert-config-6/vocab.txt from cache at /data3/linming/.cache/torch/transformers/ea1474aad40c1c8ed4e1cb7c11345ddda6df27a857fb29e1d4c901d9b900d32d.26f8bd5a32e49c2a8271a46950754a4a767726709b7741c68723bc1db840a87e
+INFO:transformers.modeling_utils:loading weights file /data3/linming/DNABERT/examples/embeding_model/6-new-12w-0/pytorch_model.bin
+INFO:transformers.modeling_utils:Weights of BertForSequenceClassification_textCNN not initialized from pretrained model: ['classifier.weight', 'classifier.bias', 'textcnn.convs.0.weight', 'textcnn.convs.0.bias', 'textcnn.convs.1.weight', 'textcnn.convs.1.bias', 'textcnn.convs.2.weight', 'textcnn.convs.2.bias', 'textcnn.convs.3.weight', 'textcnn.convs.3.bias', 'textcnn.convs.4.weight', 'textcnn.convs.4.bias', 'textcnn.fc.0.weight', 'textcnn.fc.0.bias', 'fc.0.weight', 'fc.0.bias', 'fc.3.weight', 'fc.3.bias']
+INFO:transformers.modeling_utils:Weights from pretrained model not used in BertForSequenceClassification_textCNN: ['cls.predictions.bias', 'cls.predictions.transform.dense.weight', 'cls.predictions.transform.dense.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.decoder.weight', 'cls.predictions.decoder.bias']
+INFO:__main__:finish loading model
+INFO:__main__:Training/evaluation parameters Namespace(adam_epsilon=1e-08, attention_probs_dropout_prob=0.1, beta1=0.9, beta2=0.999, cache_dir='', config_name='', data_dir='/data3/linming/DNABERT/examples/data/no_val_mutant/', device=device(type='cuda'), do_ensemble_pred=False, do_eval=True, do_lower_case=False, do_predict=False, do_train=True, do_visualize=False, early_stop=0, eval_all_checkpoints=False, evaluate_during_training=True, filter_num=128, filter_size=[2, 3, 4, 5, 6], fp16=False, fp16_opt_level='O1', gradient_accumulation_steps=1, hidden_dropout_prob=0.1, learning_rate=0.001, local_rank=-1, logging_steps=100, max_grad_norm=1.0, max_seq_length=200, max_steps=-1, model_name='mutant_freeze9_hurryup', model_name_or_path='/data3/linming/DNABERT/examples/embeding_model/6-new-12w-0/', model_type='dna', n_gpu=2, n_process=8, no_cuda=False, num_rnn_layer=2, num_train_epochs=30.0, output_dir='/data3/linming/DNABERT/examples/output/no_val_mutant/', output_mode='classification', overwrite_cache=False, overwrite_output_dir=True, per_gpu_eval_batch_size=64, per_gpu_pred_batch_size=8, per_gpu_train_batch_size=64, predict_dir=None, predict_scan_size=1, result_dir=None, rnn='lstm', rnn_dropout=0.0, rnn_hidden=768, save_steps=4000, save_total_limit=None, seed=42, server_ip='', server_port='', should_continue=False, task_name='dnaprom', tokenizer_name='dna6', visualize_data_dir=None, visualize_models=None, visualize_train=False, warmup_percent=0.2, warmup_steps=0, weight_decay=0.01)
+INFO:__main__:Loading features from cached file /data3/linming/DNABERT/examples/data/no_val_mutant/cached_train_6-new-12w-0_200_dnaprom
+INFO:__main__:***** Running training *****
+INFO:__main__:  Num examples = 19097
+INFO:__main__:  Num Epochs = 30
+INFO:__main__:  Instantaneous batch size per GPU = 64
+INFO:__main__:  Total train batch size (w. parallel, distributed & accumulation) = 128
+INFO:__main__:  Gradient Accumulation steps = 1
+INFO:__main__:  Total optimization steps = 4500
+INFO:__main__:  Continuing training from checkpoint, will skip to saved global_step
+INFO:__main__:  Continuing training from epoch 0
+INFO:__main__:  Continuing training from global step 0
+INFO:__main__:  Will skip the first 0 steps in the first epoch
+INFO:__main__:Loading features from cached file /data3/linming/DNABERT/examples/data/no_val_mutant/cached_dev_6-new-12w-0_200_dnaprom
+INFO:__main__:***** Running evaluation  *****
+INFO:__main__:  Num examples = 151
+INFO:__main__:  Batch size = 128
+INFO:__main__:***** Eval results  *****
+INFO:__main__:  acc = 0.7483443708609272
+INFO:__main__:  auc = 0.7837742504409171
+INFO:__main__:  f1 = 0.7470017636684303
+INFO:__main__:  mcc = 0.5267066027342352
+INFO:__main__:  precision = 0.7691599115696389
+INFO:__main__:  recall = 0.7576719576719577
+INFO:__main__:{"eval_acc": 0.7483443708609272, "eval_f1": 0.7470017636684303, "eval_mcc": 0.5267066027342352, "eval_auc": 0.7837742504409171, "eval_precision": 0.7691599115696389, "eval_recall": 0.7576719576719577, "learning_rate": 0.0001111111111111111, "loss": 0.6765438288450241, "step": 100}
+INFO:__main__:Loading features from cached file /data3/linming/DNABERT/examples/data/no_val_mutant/cached_dev_6-new-12w-0_200_dnaprom
+INFO:__main__:***** Running evaluation  *****
+INFO:__main__:  Num examples = 151
+INFO:__main__:  Batch size = 128
+INFO:__main__:***** Eval results  *****
+INFO:__main__:  acc = 0.7615894039735099
+INFO:__main__:  auc = 0.810405643738977
+INFO:__main__:  f1 = 0.7598091198303287
+INFO:__main__:  mcc = 0.5595275630477694
+INFO:__main__:  precision = 0.7877939529675252
+INFO:__main__:  recall = 0.771957671957672
+INFO:__main__:{"eval_acc": 0.7615894039735099, "eval_f1": 0.7598091198303287, "eval_mcc": 0.5595275630477694, "eval_auc": 0.810405643738977, "eval_precision": 0.7877939529675252, "eval_recall": 0.771957671957672, "learning_rate": 0.0002222222222222222, "loss": 0.64042937874794, "step": 200}
+INFO:__main__:Loading features from cached file /data3/linming/DNABERT/examples/data/no_val_mutant/cached_dev_6-new-12w-0_200_dnaprom
+INFO:__main__:***** Running evaluation  *****
+INFO:__main__:  Num examples = 151
+INFO:__main__:  Batch size = 128
+INFO:__main__:***** Eval results  *****
+INFO:__main__:  acc = 0.7350993377483444
+INFO:__main__:  auc = 0.7975308641975308
+INFO:__main__:  f1 = 0.732459248759745
+INFO:__main__:  mcc = 0.510460856672954
+INFO:__main__:  precision = 0.7644886363636363
+INFO:__main__:  recall = 0.7462962962962962
+INFO:__main__:{"eval_acc": 0.7350993377483444, "eval_f1": 0.732459248759745, "eval_mcc": 0.510460856672954, "eval_auc": 0.7975308641975308, "eval_precision": 0.7644886363636363, "eval_recall": 0.7462962962962962, "learning_rate": 0.0003333333333333333, "loss": 0.6323299151659012, "step": 300}
+INFO:__main__:Loading features from cached file /data3/linming/DNABERT/examples/data/no_val_mutant/cached_dev_6-new-12w-0_200_dnaprom
+INFO:__main__:***** Running evaluation  *****
+INFO:__main__:  Num examples = 151
+INFO:__main__:  Batch size = 128
+INFO:__main__:***** Eval results  *****
+INFO:__main__:  acc = 0.6821192052980133
+INFO:__main__:  auc = 0.7493827160493828
+INFO:__main__:  f1 = 0.6731601731601731
+INFO:__main__:  mcc = 0.4314913894167461
+INFO:__main__:  precision = 0.7352201257861635
+INFO:__main__:  recall = 0.6978835978835979
+INFO:__main__:{"eval_acc": 0.6821192052980133, "eval_f1": 0.6731601731601731, "eval_mcc": 0.4314913894167461, "eval_auc": 0.7493827160493828, "eval_precision": 0.7352201257861635, "eval_recall": 0.6978835978835979, "learning_rate": 0.0004444444444444444, "loss": 0.6297253090143203, "step": 400}
+INFO:__main__:Loading features from cached file /data3/linming/DNABERT/examples/data/no_val_mutant/cached_dev_6-new-12w-0_200_dnaprom
+INFO:__main__:***** Running evaluation  *****
+INFO:__main__:  Num examples = 151
+INFO:__main__:  Batch size = 128
+INFO:__main__:***** Eval results  *****
+INFO:__main__:  acc = 0.7152317880794702
+INFO:__main__:  auc = 0.7562610229276896
+INFO:__main__:  f1 = 0.7127626631276267
+INFO:__main__:  mcc = 0.4662965828908799
+INFO:__main__:  precision = 0.7406954887218045
+INFO:__main__:  recall = 0.7258377425044091
+INFO:__main__:{"eval_acc": 0.7152317880794702, "eval_f1": 0.7127626631276267, "eval_mcc": 0.4662965828908799, "eval_auc": 0.7562610229276896, "eval_precision": 0.7406954887218045, "eval_recall": 0.7258377425044091, "learning_rate": 0.0005555555555555556, "loss": 0.6953548806905746, "step": 500}
+INFO:__main__:Loading features from cached file /data3/linming/DNABERT/examples/data/no_val_mutant/cached_dev_6-new-12w-0_200_dnaprom
+INFO:__main__:***** Running evaluation  *****
+INFO:__main__:  Num examples = 151
+INFO:__main__:  Batch size = 128
+INFO:__main__:***** Eval results  *****
+INFO:__main__:  acc = 0.5231788079470199
+INFO:__main__:  auc = 0.6825396825396826
+INFO:__main__:  f1 = 0.4062909567496723
+INFO:__main__:  mcc = -0.022439640187565234
+INFO:__main__:  precision = 0.48070907194994783
+INFO:__main__:  recall = 0.49347442680776016
+INFO:__main__:{"eval_acc": 0.5231788079470199, "eval_f1": 0.4062909567496723, "eval_mcc": -0.022439640187565234, "eval_auc": 0.6825396825396826, "eval_precision": 0.48070907194994783, "eval_recall": 0.49347442680776016, "learning_rate": 0.0006666666666666666, "loss": 0.6817875438928604, "step": 600}
+INFO:__main__:Loading features from cached file /data3/linming/DNABERT/examples/data/no_val_mutant/cached_dev_6-new-12w-0_200_dnaprom
+INFO:__main__:***** Running evaluation  *****
+INFO:__main__:  Num examples = 151
+INFO:__main__:  Batch size = 128
+INFO:__main__:***** Eval results  *****
+INFO:__main__:  acc = 0.5364238410596026
+INFO:__main__:  auc = 0.7171075837742504
+INFO:__main__:  f1 = 0.34913793103448276
+INFO:__main__:  mcc = 0.0
+INFO:__main__:  precision = 0.2682119205298013
+INFO:__main__:  recall = 0.5
+INFO:__main__:{"eval_acc": 0.5364238410596026, "eval_f1": 0.34913793103448276, "eval_mcc": 0.0, "eval_auc": 0.7171075837742504, "eval_precision": 0.2682119205298013, "eval_recall": 0.5, "learning_rate": 0.0007777777777777778, "loss": 0.6758478385210037, "step": 700}
+INFO:__main__:Loading features from cached file /data3/linming/DNABERT/examples/data/no_val_mutant/cached_dev_6-new-12w-0_200_dnaprom
+INFO:__main__:***** Running evaluation  *****
+INFO:__main__:  Num examples = 151
+INFO:__main__:  Batch size = 128
+INFO:__main__:***** Eval results  *****
+INFO:__main__:  acc = 0.5364238410596026
+INFO:__main__:  auc = 0.7405643738977072
+INFO:__main__:  f1 = 0.34913793103448276
+INFO:__main__:  mcc = 0.0
+INFO:__main__:  precision = 0.2682119205298013
+INFO:__main__:  recall = 0.5
+INFO:__main__:{"eval_acc": 0.5364238410596026, "eval_f1": 0.34913793103448276, "eval_mcc": 0.0, "eval_auc": 0.7405643738977072, "eval_precision": 0.2682119205298013, "eval_recall": 0.5, "learning_rate": 0.0008888888888888888, "loss": 0.6919785791635513, "step": 800}
+INFO:__main__:Loading features from cached file /data3/linming/DNABERT/examples/data/no_val_mutant/cached_dev_6-new-12w-0_200_dnaprom
+INFO:__main__:***** Running evaluation  *****
+INFO:__main__:  Num examples = 151
+INFO:__main__:  Batch size = 128
+INFO:__main__:***** Eval results  *****
+INFO:__main__:  acc = 0.5364238410596026
+INFO:__main__:  auc = 0.7505291005291006
+INFO:__main__:  f1 = 0.34913793103448276
+INFO:__main__:  mcc = 0.0
+INFO:__main__:  precision = 0.2682119205298013
+INFO:__main__:  recall = 0.5
+INFO:__main__:{"eval_acc": 0.5364238410596026, "eval_f1": 0.34913793103448276, "eval_mcc": 0.0, "eval_auc": 0.7505291005291006, "eval_precision": 0.2682119205298013, "eval_recall": 0.5, "learning_rate": 0.001, "loss": 0.6929312551021576, "step": 900}
+INFO:__main__:Loading features from cached file /data3/linming/DNABERT/examples/data/no_val_mutant/cached_dev_6-new-12w-0_200_dnaprom
+INFO:__main__:***** Running evaluation  *****
+INFO:__main__:  Num examples = 151
+INFO:__main__:  Batch size = 128
+INFO:__main__:***** Eval results  *****
+INFO:__main__:  acc = 0.5364238410596026
+INFO:__main__:  auc = 0.7293650793650794
+INFO:__main__:  f1 = 0.34913793103448276
+INFO:__main__:  mcc = 0.0
+INFO:__main__:  precision = 0.2682119205298013
+INFO:__main__:  recall = 0.5
+INFO:__main__:{"eval_acc": 0.5364238410596026, "eval_f1": 0.34913793103448276, "eval_mcc": 0.0, "eval_auc": 0.7293650793650794, "eval_precision": 0.2682119205298013, "eval_recall": 0.5, "learning_rate": 0.0009722222222222222, "loss": 0.704937862753868, "step": 1000}
+INFO:__main__:Loading features from cached file /data3/linming/DNABERT/examples/data/no_val_mutant/cached_dev_6-new-12w-0_200_dnaprom
+INFO:__main__:***** Running evaluation  *****
+INFO:__main__:  Num examples = 151
+INFO:__main__:  Batch size = 128
+INFO:__main__:***** Eval results  *****
+INFO:__main__:  acc = 0.5364238410596026
+INFO:__main__:  auc = 0.7358024691358025
+INFO:__main__:  f1 = 0.34913793103448276
+INFO:__main__:  mcc = 0.0
+INFO:__main__:  precision = 0.2682119205298013
+INFO:__main__:  recall = 0.5
+INFO:__main__:{"eval_acc": 0.5364238410596026, "eval_f1": 0.34913793103448276, "eval_mcc": 0.0, "eval_auc": 0.7358024691358025, "eval_precision": 0.2682119205298013, "eval_recall": 0.5, "learning_rate": 0.0009444444444444445, "loss": 0.6925819164514542, "step": 1100}
+INFO:__main__:Loading features from cached file /data3/linming/DNABERT/examples/data/no_val_mutant/cached_dev_6-new-12w-0_200_dnaprom
+INFO:__main__:***** Running evaluation  *****
+INFO:__main__:  Num examples = 151
+INFO:__main__:  Batch size = 128
+INFO:__main__:***** Eval results  *****
+INFO:__main__:  acc = 0.5364238410596026
+INFO:__main__:  auc = 0.7473544973544974
+INFO:__main__:  f1 = 0.34913793103448276
+INFO:__main__:  mcc = 0.0
+INFO:__main__:  precision = 0.2682119205298013
+INFO:__main__:  recall = 0.5
+INFO:__main__:{"eval_acc": 0.5364238410596026, "eval_f1": 0.34913793103448276, "eval_mcc": 0.0, "eval_auc": 0.7473544973544974, "eval_precision": 0.2682119205298013, "eval_recall": 0.5, "learning_rate": 0.0009166666666666666, "loss": 0.6928182643651962, "step": 1200}
+INFO:__main__:Loading features from cached file /data3/linming/DNABERT/examples/data/no_val_mutant/cached_dev_6-new-12w-0_200_dnaprom
+INFO:__main__:***** Running evaluation  *****
+INFO:__main__:  Num examples = 151
+INFO:__main__:  Batch size = 128
+INFO:__main__:***** Eval results  *****
+INFO:__main__:  acc = 0.5364238410596026
+INFO:__main__:  auc = 0.7537918871252205
+INFO:__main__:  f1 = 0.34913793103448276
+INFO:__main__:  mcc = 0.0
+INFO:__main__:  precision = 0.2682119205298013
+INFO:__main__:  recall = 0.5
+INFO:__main__:{"eval_acc": 0.5364238410596026, "eval_f1": 0.34913793103448276, "eval_mcc": 0.0, "eval_auc": 0.7537918871252205, "eval_precision": 0.2682119205298013, "eval_recall": 0.5, "learning_rate": 0.0008888888888888888, "loss": 0.6930820739269257, "step": 1300}
+INFO:__main__:Loading features from cached file /data3/linming/DNABERT/examples/data/no_val_mutant/cached_dev_6-new-12w-0_200_dnaprom
+INFO:__main__:***** Running evaluation  *****
+INFO:__main__:  Num examples = 151
+INFO:__main__:  Batch size = 128
+INFO:__main__:***** Eval results  *****
+INFO:__main__:  acc = 0.5364238410596026
+INFO:__main__:  auc = 0.7515873015873016
+INFO:__main__:  f1 = 0.34913793103448276
+INFO:__main__:  mcc = 0.0
+INFO:__main__:  precision = 0.2682119205298013
+INFO:__main__:  recall = 0.5
+INFO:__main__:{"eval_acc": 0.5364238410596026, "eval_f1": 0.34913793103448276, "eval_mcc": 0.0, "eval_auc": 0.7515873015873016, "eval_precision": 0.2682119205298013, "eval_recall": 0.5, "learning_rate": 0.0008611111111111112, "loss": 0.6927781969308853, "step": 1400}
+INFO:__main__:Loading features from cached file /data3/linming/DNABERT/examples/data/no_val_mutant/cached_dev_6-new-12w-0_200_dnaprom
+INFO:__main__:***** Running evaluation  *****
+INFO:__main__:  Num examples = 151
+INFO:__main__:  Batch size = 128
+INFO:__main__:***** Eval results  *****
+INFO:__main__:  acc = 0.5364238410596026
+INFO:__main__:  auc = 0.7529982363315697
+INFO:__main__:  f1 = 0.34913793103448276
+INFO:__main__:  mcc = 0.0
+INFO:__main__:  precision = 0.2682119205298013
+INFO:__main__:  recall = 0.5
+INFO:__main__:{"eval_acc": 0.5364238410596026, "eval_f1": 0.34913793103448276, "eval_mcc": 0.0, "eval_auc": 0.7529982363315697, "eval_precision": 0.2682119205298013, "eval_recall": 0.5, "learning_rate": 0.0008333333333333334, "loss": 0.6928972852230072, "step": 1500}
+INFO:__main__:Loading features from cached file /data3/linming/DNABERT/examples/data/no_val_mutant/cached_dev_6-new-12w-0_200_dnaprom
+INFO:__main__:***** Running evaluation  *****
+INFO:__main__:  Num examples = 151
+INFO:__main__:  Batch size = 128
+INFO:__main__:***** Eval results  *****
+INFO:__main__:  acc = 0.5364238410596026
+INFO:__main__:  auc = 0.755731922398589
+INFO:__main__:  f1 = 0.34913793103448276
+INFO:__main__:  mcc = 0.0
+INFO:__main__:  precision = 0.2682119205298013
+INFO:__main__:  recall = 0.5
+INFO:__main__:{"eval_acc": 0.5364238410596026, "eval_f1": 0.34913793103448276, "eval_mcc": 0.0, "eval_auc": 0.755731922398589, "eval_precision": 0.2682119205298013, "eval_recall": 0.5, "learning_rate": 0.0008055555555555556, "loss": 0.6963688975572586, "step": 1600}

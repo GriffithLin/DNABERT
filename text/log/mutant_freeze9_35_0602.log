@@ -1,0 +1,1385 @@
+WARNING:__main__:Process rank: -1, device: cuda, n_gpu: 2, distributed training: False, 16-bits training: False
+INFO:transformers.configuration_utils:loading configuration file /data3/linming/DNABERT/examples/embeding_model/6-new-12w-0/config.json
+INFO:transformers.configuration_utils:Model config BertConfig {
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "bos_token_id": 0,
+  "do_sample": false,
+  "eos_token_ids": 0,
+  "finetuning_task": "dnaprom",
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "id2label": {
+    "0": "LABEL_0",
+    "1": "LABEL_1"
+  },
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "is_decoder": false,
+  "label2id": {
+    "LABEL_0": 0,
+    "LABEL_1": 1
+  },
+  "layer_norm_eps": 1e-12,
+  "length_penalty": 1.0,
+  "max_length": 20,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_beams": 1,
+  "num_hidden_layers": 12,
+  "num_labels": 2,
+  "num_return_sequences": 1,
+  "num_rnn_layer": 1,
+  "output_attentions": false,
+  "output_hidden_states": true,
+  "output_past": true,
+  "pad_token_id": 0,
+  "pruned_heads": {},
+  "repetition_penalty": 1.0,
+  "rnn": "lstm",
+  "rnn_dropout": 0.0,
+  "rnn_hidden": 768,
+  "split": 10,
+  "temperature": 1.0,
+  "top_k": 50,
+  "top_p": 1.0,
+  "torchscript": false,
+  "type_vocab_size": 2,
+  "use_bfloat16": false,
+  "vocab_size": 4101
+}
+
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): raw.githubusercontent.com:443
+DEBUG:urllib3.connectionpool:https://raw.githubusercontent.com:443 "HEAD /jerryji1993/DNABERT/master/src/transformers/dnabert-config/bert-config-6/vocab.txt HTTP/1.1" 200 0
+INFO:transformers.tokenization_utils:loading file https://raw.githubusercontent.com/jerryji1993/DNABERT/master/src/transformers/dnabert-config/bert-config-6/vocab.txt from cache at /data3/linming/.cache/torch/transformers/ea1474aad40c1c8ed4e1cb7c11345ddda6df27a857fb29e1d4c901d9b900d32d.26f8bd5a32e49c2a8271a46950754a4a767726709b7741c68723bc1db840a87e
+INFO:transformers.modeling_utils:loading weights file /data3/linming/DNABERT/examples/embeding_model/6-new-12w-0/pytorch_model.bin
+INFO:transformers.modeling_utils:Weights of BertForSequenceClassification_textCNN not initialized from pretrained model: ['classifier.weight', 'classifier.bias', 'textcnn.convs.0.weight', 'textcnn.convs.0.bias', 'textcnn.convs.1.weight', 'textcnn.convs.1.bias', 'textcnn.convs.2.weight', 'textcnn.convs.2.bias', 'textcnn.convs.3.weight', 'textcnn.convs.3.bias', 'textcnn.convs.4.weight', 'textcnn.convs.4.bias', 'textcnn.fc.0.weight', 'textcnn.fc.0.bias', 'fc.0.weight', 'fc.0.bias', 'fc.3.weight', 'fc.3.bias']
+INFO:transformers.modeling_utils:Weights from pretrained model not used in BertForSequenceClassification_textCNN: ['cls.predictions.bias', 'cls.predictions.transform.dense.weight', 'cls.predictions.transform.dense.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.decoder.weight', 'cls.predictions.decoder.bias']
+INFO:__main__:finish loading model
+INFO:__main__:Training/evaluation parameters Namespace(adam_epsilon=1e-08, attention_probs_dropout_prob=0.1, beta1=0.9, beta2=0.999, cache_dir='', config_name='', data_dir='/data3/linming/DNABERT/examples/data/no_val_mutant/', device=device(type='cuda'), do_ensemble_pred=False, do_eval=True, do_lower_case=False, do_predict=False, do_train=True, do_visualize=False, early_stop=0, eval_all_checkpoints=False, evaluate_during_training=True, filter_num=128, filter_size=[2, 3, 4, 5, 6], fp16=False, fp16_opt_level='O1', gradient_accumulation_steps=1, hidden_dropout_prob=0.1, learning_rate=0.0002, local_rank=-1, logging_steps=100, max_grad_norm=1.0, max_seq_length=200, max_steps=-1, model_name='mutant_freeze9_35_0602', model_name_or_path='/data3/linming/DNABERT/examples/embeding_model/6-new-12w-0/', model_type='dna', n_gpu=2, n_process=8, no_cuda=False, num_rnn_layer=2, num_train_epochs=35.0, output_dir='/data3/linming/DNABERT/examples/output/no_val_mutant/', output_mode='classification', overwrite_cache=False, overwrite_output_dir=True, per_gpu_eval_batch_size=64, per_gpu_pred_batch_size=8, per_gpu_train_batch_size=64, predict_dir=None, predict_scan_size=1, result_dir=None, rnn='lstm', rnn_dropout=0.0, rnn_hidden=768, save_steps=4000, save_total_limit=None, seed=42, server_ip='', server_port='', should_continue=False, task_name='dnaprom', tokenizer_name='dna6', visualize_data_dir=None, visualize_models=None, visualize_train=False, warmup_percent=0.2, warmup_steps=0, weight_decay=0.01)
+INFO:__main__:Loading features from cached file /data3/linming/DNABERT/examples/data/no_val_mutant/cached_train_6-new-12w-0_200_dnaprom
+INFO:__main__:***** Running training *****
+INFO:__main__:  Num examples = 19097
+INFO:__main__:  Num Epochs = 35
+INFO:__main__:  Instantaneous batch size per GPU = 64
+INFO:__main__:  Total train batch size (w. parallel, distributed & accumulation) = 128
+INFO:__main__:  Gradient Accumulation steps = 1
+INFO:__main__:  Total optimization steps = 5250
+INFO:__main__:  Continuing training from checkpoint, will skip to saved global_step
+INFO:__main__:  Continuing training from epoch 0
+INFO:__main__:  Continuing training from global step 0
+INFO:__main__:  Will skip the first 0 steps in the first epoch
+INFO:__main__:Loading features from cached file /data3/linming/DNABERT/examples/data/no_val_mutant/cached_dev_6-new-12w-0_200_dnaprom
+INFO:__main__:***** Running evaluation  *****
+INFO:__main__:  Num examples = 151
+INFO:__main__:  Batch size = 128
+INFO:__main__:***** Eval results  *****
+INFO:__main__:  acc = 0.7417218543046358
+INFO:__main__:  auc = 0.7844797178130511
+INFO:__main__:  f1 = 0.7387890884896873
+INFO:__main__:  mcc = 0.5273664377576622
+INFO:__main__:  precision = 0.7743413516609392
+INFO:__main__:  recall = 0.7534391534391534
+INFO:__main__:{"eval_acc": 0.7417218543046358, "eval_f1": 0.7387890884896873, "eval_mcc": 0.5273664377576622, "eval_auc": 0.7844797178130511, "eval_precision": 0.7743413516609392, "eval_recall": 0.7534391534391534, "learning_rate": 1.9047619047619046e-05, "loss": 0.682732617855072, "step": 100}
+DEBUG:matplotlib.font_manager:findfont: Matching sans\-serif:style=normal:variant=normal:weight=normal:stretch=normal:size=10.0.
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'STIXGeneral' (STIXGeneral.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'STIXNonUnicode' (STIXNonUni.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'STIXSizeTwoSym' (STIXSizTwoSymReg.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'STIXSizeThreeSym' (STIXSizThreeSymReg.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'DejaVu Sans Mono' (DejaVuSansMono-Oblique.ttf) oblique normal 400 normal>) = 11.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'DejaVu Sans' (DejaVuSans-Bold.ttf) normal normal 700 normal>) = 0.33499999999999996
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'cmb10' (cmb10.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'STIXGeneral' (STIXGeneralBolIta.ttf) italic normal 700 normal>) = 11.335
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'DejaVu Sans' (DejaVuSans.ttf) normal normal 400 normal>) = 0.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'DejaVu Sans Display' (DejaVuSansDisplay.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'STIXNonUnicode' (STIXNonUniIta.ttf) italic normal 400 normal>) = 11.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'cmtt10' (cmtt10.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'DejaVu Serif' (DejaVuSerif-Italic.ttf) italic normal 400 normal>) = 11.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'STIXSizeOneSym' (STIXSizOneSymReg.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'STIXGeneral' (STIXGeneralItalic.ttf) italic normal 400 normal>) = 11.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'cmmi10' (cmmi10.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'STIXNonUnicode' (STIXNonUniBol.ttf) normal normal 700 normal>) = 10.335
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'DejaVu Sans' (DejaVuSans-BoldOblique.ttf) oblique normal 700 normal>) = 1.335
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'DejaVu Sans Mono' (DejaVuSansMono.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'DejaVu Sans Mono' (DejaVuSansMono-Bold.ttf) normal normal 700 normal>) = 10.335
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'DejaVu Serif' (DejaVuSerif-BoldItalic.ttf) italic normal 700 normal>) = 11.335
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'DejaVu Serif Display' (DejaVuSerifDisplay.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'cmss10' (cmss10.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'STIXSizeFourSym' (STIXSizFourSymReg.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'STIXGeneral' (STIXGeneralBol.ttf) normal normal 700 normal>) = 10.335
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'DejaVu Sans' (DejaVuSans-Oblique.ttf) oblique normal 400 normal>) = 1.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'DejaVu Serif' (DejaVuSerif.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'cmsy10' (cmsy10.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'DejaVu Serif' (DejaVuSerif-Bold.ttf) normal normal 700 normal>) = 10.335
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'STIXSizeFourSym' (STIXSizFourSymBol.ttf) normal normal 700 normal>) = 10.335
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'DejaVu Sans Mono' (DejaVuSansMono-BoldOblique.ttf) oblique normal 700 normal>) = 11.335
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'STIXSizeFiveSym' (STIXSizFiveSymReg.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'STIXNonUnicode' (STIXNonUniBolIta.ttf) italic normal 700 normal>) = 11.335
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'cmex10' (cmex10.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'cmr10' (cmr10.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'STIXSizeThreeSym' (STIXSizThreeSymBol.ttf) normal normal 700 normal>) = 10.335
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'STIXSizeTwoSym' (STIXSizTwoSymBol.ttf) normal normal 700 normal>) = 10.335
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'STIXSizeOneSym' (STIXSizOneSymBol.ttf) normal normal 700 normal>) = 10.335
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Khmer OS System' (KhmerOSsys.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Umpush' (Umpush-Light.ttf) normal normal 300 normal>) = 10.145
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Rachana' (Rachana-Regular.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Kinnari' (Kinnari-Bold.ttf) normal normal 700 normal>) = 10.335
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Padauk' (Padauk-Bold.ttf) normal normal 700 normal>) = 10.335
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Keraleeyam' (Keraleeyam.ttf) normal normal 700 normal>) = 10.335
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Liberation Sans' (LiberationSans-Italic.ttf) italic normal 400 normal>) = 11.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Khmer OS' (KhmerOS.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'FreeSerif' (FreeSerif.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Liberation Sans' (LiberationSans-BoldItalic.ttf) italic normal 700 normal>) = 11.335
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Ubuntu' (Ubuntu-L.ttf) normal normal 300 normal>) = 10.145
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Lohit Kannada' (Lohit-Kannada.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Loma' (Loma-Oblique.ttf) oblique normal 400 normal>) = 11.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Garuda' (Garuda-BoldOblique.ttf) oblique normal 700 normal>) = 11.335
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Tlwg Typist' (TlwgTypist.ttf) normal normal 500 normal>) = 10.145
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Lohit Assamese' (Lohit-Assamese.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Laksaman' (Laksaman-BoldItalic.ttf) italic normal 700 normal>) = 11.335
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Liberation Sans' (LiberationSans-Bold.ttf) normal normal 700 normal>) = 10.335
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Lohit Devanagari' (Lohit-Devanagari.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Jamrul' (JamrulNormal.ttf) normal normal 500 normal>) = 10.145
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Ubuntu Mono' (UbuntuMono-B.ttf) normal normal 700 normal>) = 10.335
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Liberation Serif' (LiberationSerif-BoldItalic.ttf) italic normal 700 normal>) = 11.335
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'DejaVu Serif' (DejaVuSerif.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'DejaVu Sans Mono' (DejaVuSansMono.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Lato' (Lato-MediumItalic.ttf) italic normal 500 normal>) = 11.145
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Liberation Sans Narrow' (LiberationSansNarrow-Regular.ttf) normal normal 400 condensed>) = 10.25
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Kinnari' (Kinnari-Italic.ttf) italic normal 500 normal>) = 11.145
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Nakula' (nakula.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Liberation Serif' (LiberationSerif-Bold.ttf) normal normal 700 normal>) = 10.335
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'KacstTitleL' (KacstTitleL.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Loma' (Loma.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'padmaa' (padmaa.ttf) normal normal 500 normal>) = 10.145
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Lato' (Lato-ThinItalic.ttf) italic normal 200 normal>) = 11.24
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'LKLUG' (lklug.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Liberation Sans Narrow' (LiberationSansNarrow-Italic.ttf) italic normal 400 condensed>) = 11.25
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Umpush' (Umpush-Bold.ttf) normal normal 700 normal>) = 10.335
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Tlwg Mono' (TlwgMono.ttf) normal normal 500 normal>) = 10.145
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'KacstTitle' (KacstTitle.ttf) normal normal 500 normal>) = 10.145
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'FreeMono' (FreeMonoBold.ttf) normal normal 700 normal>) = 10.335
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Dyuthi' (Dyuthi.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'FreeSans' (FreeSansBoldOblique.ttf) oblique normal 600 normal>) = 11.24
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Tlwg Typewriter' (TlwgTypewriter.ttf) normal normal 500 normal>) = 10.145
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Lato' (Lato-BoldItalic.ttf) italic normal 700 normal>) = 11.335
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Tlwg Mono' (TlwgMono-Oblique.ttf) oblique normal 400 normal>) = 11.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Noto Serif CJK JP' (NotoSerifCJK-Bold.ttc) normal normal 700 normal>) = 10.335
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Uroob' (Uroob.ttf) normal normal 700 normal>) = 10.335
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'padmaa-Bold.1.1' (padmaa-Bold.1.1.ttf) normal normal 700 normal>) = 10.335
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Ubuntu' (Ubuntu-B.ttf) normal normal 700 normal>) = 10.335
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Lohit Tamil Classical' (Lohit-Tamil-Classical.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Tlwg Typist' (TlwgTypist-BoldOblique.ttf) oblique normal 700 normal>) = 11.335
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Ubuntu Mono' (UbuntuMono-R.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Tlwg Typist' (TlwgTypist-Bold.ttf) normal normal 700 normal>) = 10.335
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Tlwg Mono' (TlwgMono-Bold.ttf) normal normal 700 normal>) = 10.335
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Phetsarath OT' (Phetsarath_OT.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Liberation Mono' (LiberationMono-Regular.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Lato' (Lato-Bold.ttf) normal normal 700 normal>) = 10.335
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Lohit Tamil' (Lohit-Tamil.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Liberation Sans' (LiberationSans-Italic.ttf) italic normal 400 normal>) = 11.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Laksaman' (Laksaman-Italic.ttf) italic normal 400 normal>) = 11.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Lato' (Lato-Light.ttf) normal normal 300 normal>) = 10.145
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Noto Mono' (NotoMono-Regular.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'FreeSerif' (FreeSerifItalic.ttf) italic normal 400 normal>) = 11.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'FreeMono' (FreeMonoOblique.ttf) oblique normal 400 normal>) = 11.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'mry_KacstQurn' (mry_KacstQurn.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'FreeMono' (FreeMonoBoldOblique.ttf) oblique normal 700 normal>) = 11.335
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Lato' (Lato-SemiboldItalic.ttf) italic normal 600 normal>) = 11.24
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'aakar' (aakar-medium.ttf) normal normal 500 normal>) = 10.145
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Lato' (Lato-Medium.ttf) normal normal 500 normal>) = 10.145
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Rekha' (Rekha.ttf) normal normal 500 normal>) = 10.145
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'KacstPoster' (KacstPoster.ttf) normal normal 500 normal>) = 10.145
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'FreeSerif' (FreeSerifBoldItalic.ttf) italic normal 700 normal>) = 11.335
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Samyak Gujarati' (Samyak-Gujarati.ttf) normal normal 500 normal>) = 10.145
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Manjari' (Manjari-Thin.otf) normal normal 100 normal>) = 10.335
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Kinnari' (Kinnari-BoldOblique.ttf) oblique normal 700 normal>) = 11.335
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Kalimati' (kalimati.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Droid Sans Fallback' (DroidSansFallbackFull.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Noto Sans CJK JP' (NotoSansCJK-Bold.ttc) normal normal 700 normal>) = 10.335
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Tlwg Typo' (TlwgTypo-BoldOblique.ttf) oblique normal 700 normal>) = 11.335
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Manjari' (Manjari-Bold.otf) normal normal 700 normal>) = 10.335
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Tlwg Typist' (TlwgTypist-Oblique.ttf) oblique normal 500 normal>) = 11.145
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Waree' (Waree.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Lato' (Lato-HeavyItalic.ttf) italic normal 800 normal>) = 11.43
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Ubuntu Condensed' (Ubuntu-C.ttf) normal normal 400 condensed>) = 10.25
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Lato' (Lato-Regular.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Liberation Sans' (LiberationSans-Regular.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Chilanka' (Chilanka-Regular.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'KacstFarsi' (KacstFarsi.ttf) normal normal 500 normal>) = 10.145
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Pagul' (Pagul.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Norasi' (Norasi-Italic.ttf) italic normal 400 normal>) = 11.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Vemana2000' (vemana2000.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Noto Sans CJK JP' (NotoSansCJK-Regular.ttc) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Lato' (Lato-Semibold.ttf) normal normal 600 normal>) = 10.24
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'DejaVu Sans' (DejaVuSans.ttf) normal normal 400 normal>) = 0.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Karumbi' (Karumbi.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Liberation Mono' (LiberationMono-Bold.ttf) normal normal 700 normal>) = 10.335
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Navilu' (Navilu.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'DejaVu Sans Mono' (DejaVuSansMono-Bold.ttf) normal normal 700 normal>) = 10.335
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Sawasdee' (Sawasdee.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'KacstArt' (KacstArt.ttf) normal normal 500 normal>) = 10.145
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'FreeSerif' (FreeSerifBold.ttf) normal normal 700 normal>) = 10.335
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Gargi' (Gargi.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Liberation Serif' (LiberationSerif-Italic.ttf) italic normal 400 normal>) = 11.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Tlwg Typo' (TlwgTypo-Bold.ttf) normal normal 700 normal>) = 10.335
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Liberation Serif' (LiberationSerif-BoldItalic.ttf) italic normal 700 normal>) = 11.335
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'KacstOne' (KacstOne-Bold.ttf) normal normal 700 normal>) = 10.335
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Kinnari' (Kinnari-Oblique.ttf) oblique normal 500 normal>) = 11.145
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Sawasdee' (Sawasdee-Oblique.ttf) oblique normal 400 normal>) = 11.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Samyak Tamil' (Samyak-Tamil.ttf) normal normal 500 normal>) = 10.145
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Tlwg Typewriter' (TlwgTypewriter-BoldOblique.ttf) oblique normal 700 normal>) = 11.335
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Umpush' (Umpush.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Suruma' (Suruma.ttf) normal normal 500 normal>) = 10.145
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'KacstPen' (KacstPen.ttf) normal normal 500 normal>) = 10.145
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Purisa' (Purisa.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'AnjaliOldLipi' (AnjaliOldLipi.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'KacstLetter' (KacstLetter.ttf) normal normal 500 normal>) = 10.145
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Umpush' (Umpush-Oblique.ttf) oblique normal 400 normal>) = 11.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'FreeSans' (FreeSansBold.ttf) normal normal 600 normal>) = 10.24
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Laksaman' (Laksaman.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Mukti Narrow' (MuktiNarrowBold.ttf) normal normal 700 normal>) = 10.335
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Loma' (Loma-Bold.ttf) normal normal 700 normal>) = 10.335
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Lato' (Lato-Thin.ttf) normal normal 200 normal>) = 10.24
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Lohit Gujarati' (Lohit-Gujarati.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Liberation Mono' (LiberationMono-BoldItalic.ttf) italic normal 700 normal>) = 11.335
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Laksaman' (Laksaman-Bold.ttf) normal normal 700 normal>) = 10.335
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Lato' (Lato-Heavy.ttf) normal normal 800 normal>) = 10.43
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Samyak Malayalam' (Samyak-Malayalam.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Lohit Bengali' (Lohit-Bengali.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'ori1Uni' (utkal.ttf) normal normal 500 normal>) = 10.145
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Liberation Sans' (LiberationSans-BoldItalic.ttf) italic normal 700 normal>) = 11.335
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Norasi' (Norasi-Oblique.ttf) oblique normal 400 normal>) = 11.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Liberation Mono' (LiberationMono-Regular.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'padmaa' (padmaa-Medium-0.5.ttf) normal normal 500 normal>) = 10.145
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Likhan' (LikhanNormal.ttf) normal normal 500 normal>) = 10.145
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Saab' (Saab.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'KacstDecorative' (KacstDecorative.ttf) normal normal 500 normal>) = 10.145
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Waree' (Waree-Oblique.ttf) oblique normal 400 normal>) = 11.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Tlwg Mono' (TlwgMono-BoldOblique.ttf) oblique normal 700 normal>) = 11.335
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Samanata' (samanata.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Liberation Serif' (LiberationSerif-Bold.ttf) normal normal 700 normal>) = 10.335
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Ubuntu Mono' (UbuntuMono-RI.ttf) italic normal 400 normal>) = 11.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'FreeSans' (FreeSansOblique.ttf) oblique normal 400 normal>) = 11.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Purisa' (Purisa-BoldOblique.ttf) oblique normal 700 normal>) = 11.335
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Tlwg Typewriter' (TlwgTypewriter-Bold.ttf) normal normal 700 normal>) = 10.335
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Lato' (Lato-LightItalic.ttf) italic normal 300 normal>) = 11.145
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Padauk Book' (PadaukBook-Bold.ttf) normal normal 700 normal>) = 10.335
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Ubuntu Mono' (UbuntuMono-BI.ttf) italic normal 700 normal>) = 11.335
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Ubuntu' (Ubuntu-BI.ttf) italic normal 700 normal>) = 11.335
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Sarai' (Sarai.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'KacstNaskh' (KacstNaskh.ttf) normal normal 500 normal>) = 10.145
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'OpenSymbol' (opens___.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Norasi' (Norasi-BoldOblique.ttf) oblique normal 700 normal>) = 11.335
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Sawasdee' (Sawasdee-BoldOblique.ttf) oblique normal 700 normal>) = 11.335
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Lato' (Lato-Hairline.ttf) normal normal 100 normal>) = 10.335
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'DejaVu Serif' (DejaVuSerif-Bold.ttf) normal normal 700 normal>) = 10.335
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'KacstDigital' (KacstDigital.ttf) normal normal 500 normal>) = 10.145
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Garuda' (Garuda.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Umpush' (Umpush-LightOblique.ttf) oblique normal 300 normal>) = 11.145
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Loma' (Loma-BoldOblique.ttf) oblique normal 700 normal>) = 11.335
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'DejaVu Sans' (DejaVuSans-Bold.ttf) normal normal 700 normal>) = 0.33499999999999996
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Liberation Serif' (LiberationSerif-Regular.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Liberation Sans' (LiberationSans-Bold.ttf) normal normal 700 normal>) = 10.335
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Tlwg Typewriter' (TlwgTypewriter-Oblique.ttf) oblique normal 400 normal>) = 11.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Liberation Serif' (LiberationSerif-Regular.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Lato' (Lato-HairlineItalic.ttf) italic normal 100 normal>) = 11.335
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Sahadeva' (sahadeva.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Ubuntu' (Ubuntu-M.ttf) normal normal 500 normal>) = 10.145
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Garuda' (Garuda-Bold.ttf) normal normal 700 normal>) = 10.335
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Liberation Sans Narrow' (LiberationSansNarrow-Bold.ttf) normal normal 700 condensed>) = 10.535
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Pothana2000' (Pothana2000.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Meera' (Meera.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Samyak Devanagari' (Samyak-Devanagari.ttf) normal normal 500 normal>) = 10.145
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'KacstScreen' (KacstScreen.ttf) normal normal 500 normal>) = 10.145
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Purisa' (Purisa-Oblique.ttf) oblique normal 400 normal>) = 11.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Liberation Mono' (LiberationMono-BoldItalic.ttf) italic normal 700 normal>) = 11.335
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'KacstOne' (KacstOne.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Umpush' (Umpush-BoldOblique.ttf) oblique normal 700 normal>) = 11.335
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Mitra Mono' (mitra.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Ubuntu' (Ubuntu-R.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'KacstOffice' (KacstOffice.ttf) normal normal 500 normal>) = 10.145
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Ubuntu' (Ubuntu-LI.ttf) italic normal 300 normal>) = 11.145
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Tibetan Machine Uni' (TibetanMachineUni.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'KacstBook' (KacstBook.ttf) normal normal 500 normal>) = 10.145
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'RaghuMalayalam' (RaghuMalayalamSans-Regular.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'FreeSans' (FreeSans.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Liberation Sans' (LiberationSans-Regular.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Chandas' (chandas1-2.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Lato' (Lato-BlackItalic.ttf) italic normal 900 normal>) = 11.525
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Liberation Mono' (LiberationMono-Bold.ttf) normal normal 700 normal>) = 10.335
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Noto Serif CJK JP' (NotoSerifCJK-Regular.ttc) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Liberation Sans Narrow' (LiberationSansNarrow-BoldItalic.ttf) italic normal 700 condensed>) = 11.535
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Mukti Narrow' (MuktiNarrow.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Waree' (Waree-Bold.ttf) normal normal 700 normal>) = 10.335
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Kinnari' (Kinnari-BoldItalic.ttf) italic normal 700 normal>) = 11.335
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Padauk Book' (PadaukBook-Regular.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Lohit Telugu' (Lohit-Telugu.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Kalapi' (Kalapi.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Tlwg Typo' (TlwgTypo.ttf) normal normal 500 normal>) = 10.145
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Abyssinica SIL' (AbyssinicaSIL-R.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Lohit Gurmukhi' (Lohit-Gurmukhi.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Sawasdee' (Sawasdee-Bold.ttf) normal normal 700 normal>) = 10.335
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Manjari' (Manjari-Regular.otf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Liberation Serif' (LiberationSerif-Italic.ttf) italic normal 400 normal>) = 11.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Rachana' (Rachana-Bold.ttf) normal normal 700 normal>) = 10.335
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Purisa' (Purisa-Bold.ttf) normal normal 700 normal>) = 10.335
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Padauk' (Padauk-Regular.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Tlwg Typo' (TlwgTypo-Oblique.ttf) oblique normal 500 normal>) = 11.145
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Ani' (ani.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Liberation Mono' (LiberationMono-Italic.ttf) italic normal 400 normal>) = 11.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'FreeMono' (FreeMono.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Gubbi' (Gubbi.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Lohit Odia' (Lohit-Odia.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Lato' (Lato-Italic.ttf) italic normal 400 normal>) = 11.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Ubuntu' (Ubuntu-MI.ttf) italic normal 500 normal>) = 11.145
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Kinnari' (Kinnari.ttf) normal normal 500 normal>) = 10.145
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'KacstQurn' (KacstQurn.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Norasi' (Norasi-Bold.ttf) normal normal 700 normal>) = 10.335
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Norasi' (Norasi.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Ubuntu' (Ubuntu-RI.ttf) italic normal 400 normal>) = 11.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Lato' (Lato-Black.ttf) normal normal 900 normal>) = 10.525
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Liberation Mono' (LiberationMono-Italic.ttf) italic normal 400 normal>) = 11.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Lohit Malayalam' (Lohit-Malayalam.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Garuda' (Garuda-Oblique.ttf) oblique normal 400 normal>) = 11.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Norasi' (Norasi-BoldItalic.ttf) italic normal 700 normal>) = 11.335
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Waree' (Waree-BoldOblique.ttf) oblique normal 700 normal>) = 11.335
+DEBUG:matplotlib.font_manager:findfont: Matching sans\-serif:style=normal:variant=normal:weight=normal:stretch=normal:size=10.0 to DejaVu Sans ('/data3/linming/.conda/envs/dnabert/lib/python3.6/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSans.ttf') with score of 0.050000.
+DEBUG:matplotlib.font_manager:findfont: Matching sans\-serif:style=normal:variant=normal:weight=normal:stretch=normal:size=12.0.
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'STIXGeneral' (STIXGeneral.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'STIXNonUnicode' (STIXNonUni.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'STIXSizeTwoSym' (STIXSizTwoSymReg.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'STIXSizeThreeSym' (STIXSizThreeSymReg.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'DejaVu Sans Mono' (DejaVuSansMono-Oblique.ttf) oblique normal 400 normal>) = 11.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'DejaVu Sans' (DejaVuSans-Bold.ttf) normal normal 700 normal>) = 0.33499999999999996
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'cmb10' (cmb10.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'STIXGeneral' (STIXGeneralBolIta.ttf) italic normal 700 normal>) = 11.335
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'DejaVu Sans' (DejaVuSans.ttf) normal normal 400 normal>) = 0.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'DejaVu Sans Display' (DejaVuSansDisplay.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'STIXNonUnicode' (STIXNonUniIta.ttf) italic normal 400 normal>) = 11.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'cmtt10' (cmtt10.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'DejaVu Serif' (DejaVuSerif-Italic.ttf) italic normal 400 normal>) = 11.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'STIXSizeOneSym' (STIXSizOneSymReg.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'STIXGeneral' (STIXGeneralItalic.ttf) italic normal 400 normal>) = 11.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'cmmi10' (cmmi10.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'STIXNonUnicode' (STIXNonUniBol.ttf) normal normal 700 normal>) = 10.335
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'DejaVu Sans' (DejaVuSans-BoldOblique.ttf) oblique normal 700 normal>) = 1.335
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'DejaVu Sans Mono' (DejaVuSansMono.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'DejaVu Sans Mono' (DejaVuSansMono-Bold.ttf) normal normal 700 normal>) = 10.335
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'DejaVu Serif' (DejaVuSerif-BoldItalic.ttf) italic normal 700 normal>) = 11.335
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'DejaVu Serif Display' (DejaVuSerifDisplay.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'cmss10' (cmss10.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'STIXSizeFourSym' (STIXSizFourSymReg.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'STIXGeneral' (STIXGeneralBol.ttf) normal normal 700 normal>) = 10.335
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'DejaVu Sans' (DejaVuSans-Oblique.ttf) oblique normal 400 normal>) = 1.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'DejaVu Serif' (DejaVuSerif.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'cmsy10' (cmsy10.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'DejaVu Serif' (DejaVuSerif-Bold.ttf) normal normal 700 normal>) = 10.335
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'STIXSizeFourSym' (STIXSizFourSymBol.ttf) normal normal 700 normal>) = 10.335
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'DejaVu Sans Mono' (DejaVuSansMono-BoldOblique.ttf) oblique normal 700 normal>) = 11.335
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'STIXSizeFiveSym' (STIXSizFiveSymReg.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'STIXNonUnicode' (STIXNonUniBolIta.ttf) italic normal 700 normal>) = 11.335
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'cmex10' (cmex10.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'cmr10' (cmr10.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'STIXSizeThreeSym' (STIXSizThreeSymBol.ttf) normal normal 700 normal>) = 10.335
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'STIXSizeTwoSym' (STIXSizTwoSymBol.ttf) normal normal 700 normal>) = 10.335
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'STIXSizeOneSym' (STIXSizOneSymBol.ttf) normal normal 700 normal>) = 10.335
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Khmer OS System' (KhmerOSsys.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Umpush' (Umpush-Light.ttf) normal normal 300 normal>) = 10.145
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Rachana' (Rachana-Regular.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Kinnari' (Kinnari-Bold.ttf) normal normal 700 normal>) = 10.335
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Padauk' (Padauk-Bold.ttf) normal normal 700 normal>) = 10.335
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Keraleeyam' (Keraleeyam.ttf) normal normal 700 normal>) = 10.335
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Liberation Sans' (LiberationSans-Italic.ttf) italic normal 400 normal>) = 11.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Khmer OS' (KhmerOS.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'FreeSerif' (FreeSerif.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Liberation Sans' (LiberationSans-BoldItalic.ttf) italic normal 700 normal>) = 11.335
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Ubuntu' (Ubuntu-L.ttf) normal normal 300 normal>) = 10.145
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Lohit Kannada' (Lohit-Kannada.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Loma' (Loma-Oblique.ttf) oblique normal 400 normal>) = 11.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Garuda' (Garuda-BoldOblique.ttf) oblique normal 700 normal>) = 11.335
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Tlwg Typist' (TlwgTypist.ttf) normal normal 500 normal>) = 10.145
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Lohit Assamese' (Lohit-Assamese.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Laksaman' (Laksaman-BoldItalic.ttf) italic normal 700 normal>) = 11.335
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Liberation Sans' (LiberationSans-Bold.ttf) normal normal 700 normal>) = 10.335
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Lohit Devanagari' (Lohit-Devanagari.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Jamrul' (JamrulNormal.ttf) normal normal 500 normal>) = 10.145
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Ubuntu Mono' (UbuntuMono-B.ttf) normal normal 700 normal>) = 10.335
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Liberation Serif' (LiberationSerif-BoldItalic.ttf) italic normal 700 normal>) = 11.335
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'DejaVu Serif' (DejaVuSerif.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'DejaVu Sans Mono' (DejaVuSansMono.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Lato' (Lato-MediumItalic.ttf) italic normal 500 normal>) = 11.145
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Liberation Sans Narrow' (LiberationSansNarrow-Regular.ttf) normal normal 400 condensed>) = 10.25
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Kinnari' (Kinnari-Italic.ttf) italic normal 500 normal>) = 11.145
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Nakula' (nakula.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Liberation Serif' (LiberationSerif-Bold.ttf) normal normal 700 normal>) = 10.335
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'KacstTitleL' (KacstTitleL.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Loma' (Loma.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'padmaa' (padmaa.ttf) normal normal 500 normal>) = 10.145
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Lato' (Lato-ThinItalic.ttf) italic normal 200 normal>) = 11.24
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'LKLUG' (lklug.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Liberation Sans Narrow' (LiberationSansNarrow-Italic.ttf) italic normal 400 condensed>) = 11.25
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Umpush' (Umpush-Bold.ttf) normal normal 700 normal>) = 10.335
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Tlwg Mono' (TlwgMono.ttf) normal normal 500 normal>) = 10.145
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'KacstTitle' (KacstTitle.ttf) normal normal 500 normal>) = 10.145
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'FreeMono' (FreeMonoBold.ttf) normal normal 700 normal>) = 10.335
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Dyuthi' (Dyuthi.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'FreeSans' (FreeSansBoldOblique.ttf) oblique normal 600 normal>) = 11.24
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Tlwg Typewriter' (TlwgTypewriter.ttf) normal normal 500 normal>) = 10.145
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Lato' (Lato-BoldItalic.ttf) italic normal 700 normal>) = 11.335
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Tlwg Mono' (TlwgMono-Oblique.ttf) oblique normal 400 normal>) = 11.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Noto Serif CJK JP' (NotoSerifCJK-Bold.ttc) normal normal 700 normal>) = 10.335
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Uroob' (Uroob.ttf) normal normal 700 normal>) = 10.335
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'padmaa-Bold.1.1' (padmaa-Bold.1.1.ttf) normal normal 700 normal>) = 10.335
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Ubuntu' (Ubuntu-B.ttf) normal normal 700 normal>) = 10.335
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Lohit Tamil Classical' (Lohit-Tamil-Classical.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Tlwg Typist' (TlwgTypist-BoldOblique.ttf) oblique normal 700 normal>) = 11.335
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Ubuntu Mono' (UbuntuMono-R.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Tlwg Typist' (TlwgTypist-Bold.ttf) normal normal 700 normal>) = 10.335
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Tlwg Mono' (TlwgMono-Bold.ttf) normal normal 700 normal>) = 10.335
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Phetsarath OT' (Phetsarath_OT.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Liberation Mono' (LiberationMono-Regular.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Lato' (Lato-Bold.ttf) normal normal 700 normal>) = 10.335
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Lohit Tamil' (Lohit-Tamil.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Liberation Sans' (LiberationSans-Italic.ttf) italic normal 400 normal>) = 11.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Laksaman' (Laksaman-Italic.ttf) italic normal 400 normal>) = 11.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Lato' (Lato-Light.ttf) normal normal 300 normal>) = 10.145
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Noto Mono' (NotoMono-Regular.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'FreeSerif' (FreeSerifItalic.ttf) italic normal 400 normal>) = 11.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'FreeMono' (FreeMonoOblique.ttf) oblique normal 400 normal>) = 11.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'mry_KacstQurn' (mry_KacstQurn.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'FreeMono' (FreeMonoBoldOblique.ttf) oblique normal 700 normal>) = 11.335
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Lato' (Lato-SemiboldItalic.ttf) italic normal 600 normal>) = 11.24
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'aakar' (aakar-medium.ttf) normal normal 500 normal>) = 10.145
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Lato' (Lato-Medium.ttf) normal normal 500 normal>) = 10.145
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Rekha' (Rekha.ttf) normal normal 500 normal>) = 10.145
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'KacstPoster' (KacstPoster.ttf) normal normal 500 normal>) = 10.145
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'FreeSerif' (FreeSerifBoldItalic.ttf) italic normal 700 normal>) = 11.335
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Samyak Gujarati' (Samyak-Gujarati.ttf) normal normal 500 normal>) = 10.145
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Manjari' (Manjari-Thin.otf) normal normal 100 normal>) = 10.335
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Kinnari' (Kinnari-BoldOblique.ttf) oblique normal 700 normal>) = 11.335
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Kalimati' (kalimati.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Droid Sans Fallback' (DroidSansFallbackFull.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Noto Sans CJK JP' (NotoSansCJK-Bold.ttc) normal normal 700 normal>) = 10.335
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Tlwg Typo' (TlwgTypo-BoldOblique.ttf) oblique normal 700 normal>) = 11.335
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Manjari' (Manjari-Bold.otf) normal normal 700 normal>) = 10.335
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Tlwg Typist' (TlwgTypist-Oblique.ttf) oblique normal 500 normal>) = 11.145
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Waree' (Waree.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Lato' (Lato-HeavyItalic.ttf) italic normal 800 normal>) = 11.43
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Ubuntu Condensed' (Ubuntu-C.ttf) normal normal 400 condensed>) = 10.25
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Lato' (Lato-Regular.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Liberation Sans' (LiberationSans-Regular.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Chilanka' (Chilanka-Regular.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'KacstFarsi' (KacstFarsi.ttf) normal normal 500 normal>) = 10.145
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Pagul' (Pagul.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Norasi' (Norasi-Italic.ttf) italic normal 400 normal>) = 11.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Vemana2000' (vemana2000.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Noto Sans CJK JP' (NotoSansCJK-Regular.ttc) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Lato' (Lato-Semibold.ttf) normal normal 600 normal>) = 10.24
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'DejaVu Sans' (DejaVuSans.ttf) normal normal 400 normal>) = 0.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Karumbi' (Karumbi.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Liberation Mono' (LiberationMono-Bold.ttf) normal normal 700 normal>) = 10.335
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Navilu' (Navilu.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'DejaVu Sans Mono' (DejaVuSansMono-Bold.ttf) normal normal 700 normal>) = 10.335
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Sawasdee' (Sawasdee.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'KacstArt' (KacstArt.ttf) normal normal 500 normal>) = 10.145
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'FreeSerif' (FreeSerifBold.ttf) normal normal 700 normal>) = 10.335
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Gargi' (Gargi.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Liberation Serif' (LiberationSerif-Italic.ttf) italic normal 400 normal>) = 11.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Tlwg Typo' (TlwgTypo-Bold.ttf) normal normal 700 normal>) = 10.335
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Liberation Serif' (LiberationSerif-BoldItalic.ttf) italic normal 700 normal>) = 11.335
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'KacstOne' (KacstOne-Bold.ttf) normal normal 700 normal>) = 10.335
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Kinnari' (Kinnari-Oblique.ttf) oblique normal 500 normal>) = 11.145
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Sawasdee' (Sawasdee-Oblique.ttf) oblique normal 400 normal>) = 11.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Samyak Tamil' (Samyak-Tamil.ttf) normal normal 500 normal>) = 10.145
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Tlwg Typewriter' (TlwgTypewriter-BoldOblique.ttf) oblique normal 700 normal>) = 11.335
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Umpush' (Umpush.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Suruma' (Suruma.ttf) normal normal 500 normal>) = 10.145
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'KacstPen' (KacstPen.ttf) normal normal 500 normal>) = 10.145
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Purisa' (Purisa.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'AnjaliOldLipi' (AnjaliOldLipi.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'KacstLetter' (KacstLetter.ttf) normal normal 500 normal>) = 10.145
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Umpush' (Umpush-Oblique.ttf) oblique normal 400 normal>) = 11.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'FreeSans' (FreeSansBold.ttf) normal normal 600 normal>) = 10.24
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Laksaman' (Laksaman.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Mukti Narrow' (MuktiNarrowBold.ttf) normal normal 700 normal>) = 10.335
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Loma' (Loma-Bold.ttf) normal normal 700 normal>) = 10.335
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Lato' (Lato-Thin.ttf) normal normal 200 normal>) = 10.24
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Lohit Gujarati' (Lohit-Gujarati.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Liberation Mono' (LiberationMono-BoldItalic.ttf) italic normal 700 normal>) = 11.335
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Laksaman' (Laksaman-Bold.ttf) normal normal 700 normal>) = 10.335
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Lato' (Lato-Heavy.ttf) normal normal 800 normal>) = 10.43
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Samyak Malayalam' (Samyak-Malayalam.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Lohit Bengali' (Lohit-Bengali.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'ori1Uni' (utkal.ttf) normal normal 500 normal>) = 10.145
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Liberation Sans' (LiberationSans-BoldItalic.ttf) italic normal 700 normal>) = 11.335
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Norasi' (Norasi-Oblique.ttf) oblique normal 400 normal>) = 11.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Liberation Mono' (LiberationMono-Regular.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'padmaa' (padmaa-Medium-0.5.ttf) normal normal 500 normal>) = 10.145
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Likhan' (LikhanNormal.ttf) normal normal 500 normal>) = 10.145
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Saab' (Saab.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'KacstDecorative' (KacstDecorative.ttf) normal normal 500 normal>) = 10.145
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Waree' (Waree-Oblique.ttf) oblique normal 400 normal>) = 11.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Tlwg Mono' (TlwgMono-BoldOblique.ttf) oblique normal 700 normal>) = 11.335
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Samanata' (samanata.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Liberation Serif' (LiberationSerif-Bold.ttf) normal normal 700 normal>) = 10.335
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Ubuntu Mono' (UbuntuMono-RI.ttf) italic normal 400 normal>) = 11.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'FreeSans' (FreeSansOblique.ttf) oblique normal 400 normal>) = 11.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Purisa' (Purisa-BoldOblique.ttf) oblique normal 700 normal>) = 11.335
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Tlwg Typewriter' (TlwgTypewriter-Bold.ttf) normal normal 700 normal>) = 10.335
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Lato' (Lato-LightItalic.ttf) italic normal 300 normal>) = 11.145
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Padauk Book' (PadaukBook-Bold.ttf) normal normal 700 normal>) = 10.335
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Ubuntu Mono' (UbuntuMono-BI.ttf) italic normal 700 normal>) = 11.335
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Ubuntu' (Ubuntu-BI.ttf) italic normal 700 normal>) = 11.335
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Sarai' (Sarai.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'KacstNaskh' (KacstNaskh.ttf) normal normal 500 normal>) = 10.145
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'OpenSymbol' (opens___.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Norasi' (Norasi-BoldOblique.ttf) oblique normal 700 normal>) = 11.335
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Sawasdee' (Sawasdee-BoldOblique.ttf) oblique normal 700 normal>) = 11.335
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Lato' (Lato-Hairline.ttf) normal normal 100 normal>) = 10.335
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'DejaVu Serif' (DejaVuSerif-Bold.ttf) normal normal 700 normal>) = 10.335
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'KacstDigital' (KacstDigital.ttf) normal normal 500 normal>) = 10.145
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Garuda' (Garuda.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Umpush' (Umpush-LightOblique.ttf) oblique normal 300 normal>) = 11.145
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Loma' (Loma-BoldOblique.ttf) oblique normal 700 normal>) = 11.335
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'DejaVu Sans' (DejaVuSans-Bold.ttf) normal normal 700 normal>) = 0.33499999999999996
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Liberation Serif' (LiberationSerif-Regular.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Liberation Sans' (LiberationSans-Bold.ttf) normal normal 700 normal>) = 10.335
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Tlwg Typewriter' (TlwgTypewriter-Oblique.ttf) oblique normal 400 normal>) = 11.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Liberation Serif' (LiberationSerif-Regular.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Lato' (Lato-HairlineItalic.ttf) italic normal 100 normal>) = 11.335
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Sahadeva' (sahadeva.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Ubuntu' (Ubuntu-M.ttf) normal normal 500 normal>) = 10.145
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Garuda' (Garuda-Bold.ttf) normal normal 700 normal>) = 10.335
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Liberation Sans Narrow' (LiberationSansNarrow-Bold.ttf) normal normal 700 condensed>) = 10.535
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Pothana2000' (Pothana2000.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Meera' (Meera.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Samyak Devanagari' (Samyak-Devanagari.ttf) normal normal 500 normal>) = 10.145
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'KacstScreen' (KacstScreen.ttf) normal normal 500 normal>) = 10.145
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Purisa' (Purisa-Oblique.ttf) oblique normal 400 normal>) = 11.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Liberation Mono' (LiberationMono-BoldItalic.ttf) italic normal 700 normal>) = 11.335
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'KacstOne' (KacstOne.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Umpush' (Umpush-BoldOblique.ttf) oblique normal 700 normal>) = 11.335
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Mitra Mono' (mitra.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Ubuntu' (Ubuntu-R.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'KacstOffice' (KacstOffice.ttf) normal normal 500 normal>) = 10.145
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Ubuntu' (Ubuntu-LI.ttf) italic normal 300 normal>) = 11.145
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Tibetan Machine Uni' (TibetanMachineUni.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'KacstBook' (KacstBook.ttf) normal normal 500 normal>) = 10.145
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'RaghuMalayalam' (RaghuMalayalamSans-Regular.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'FreeSans' (FreeSans.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Liberation Sans' (LiberationSans-Regular.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Chandas' (chandas1-2.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Lato' (Lato-BlackItalic.ttf) italic normal 900 normal>) = 11.525
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Liberation Mono' (LiberationMono-Bold.ttf) normal normal 700 normal>) = 10.335
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Noto Serif CJK JP' (NotoSerifCJK-Regular.ttc) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Liberation Sans Narrow' (LiberationSansNarrow-BoldItalic.ttf) italic normal 700 condensed>) = 11.535
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Mukti Narrow' (MuktiNarrow.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Waree' (Waree-Bold.ttf) normal normal 700 normal>) = 10.335
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Kinnari' (Kinnari-BoldItalic.ttf) italic normal 700 normal>) = 11.335
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Padauk Book' (PadaukBook-Regular.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Lohit Telugu' (Lohit-Telugu.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Kalapi' (Kalapi.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Tlwg Typo' (TlwgTypo.ttf) normal normal 500 normal>) = 10.145
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Abyssinica SIL' (AbyssinicaSIL-R.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Lohit Gurmukhi' (Lohit-Gurmukhi.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Sawasdee' (Sawasdee-Bold.ttf) normal normal 700 normal>) = 10.335
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Manjari' (Manjari-Regular.otf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Liberation Serif' (LiberationSerif-Italic.ttf) italic normal 400 normal>) = 11.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Rachana' (Rachana-Bold.ttf) normal normal 700 normal>) = 10.335
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Purisa' (Purisa-Bold.ttf) normal normal 700 normal>) = 10.335
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Padauk' (Padauk-Regular.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Tlwg Typo' (TlwgTypo-Oblique.ttf) oblique normal 500 normal>) = 11.145
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Ani' (ani.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Liberation Mono' (LiberationMono-Italic.ttf) italic normal 400 normal>) = 11.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'FreeMono' (FreeMono.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Gubbi' (Gubbi.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Lohit Odia' (Lohit-Odia.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Lato' (Lato-Italic.ttf) italic normal 400 normal>) = 11.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Ubuntu' (Ubuntu-MI.ttf) italic normal 500 normal>) = 11.145
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Kinnari' (Kinnari.ttf) normal normal 500 normal>) = 10.145
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'KacstQurn' (KacstQurn.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Norasi' (Norasi-Bold.ttf) normal normal 700 normal>) = 10.335
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Norasi' (Norasi.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Ubuntu' (Ubuntu-RI.ttf) italic normal 400 normal>) = 11.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Lato' (Lato-Black.ttf) normal normal 900 normal>) = 10.525
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Liberation Mono' (LiberationMono-Italic.ttf) italic normal 400 normal>) = 11.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Lohit Malayalam' (Lohit-Malayalam.ttf) normal normal 400 normal>) = 10.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Garuda' (Garuda-Oblique.ttf) oblique normal 400 normal>) = 11.05
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Norasi' (Norasi-BoldItalic.ttf) italic normal 700 normal>) = 11.335
+DEBUG:matplotlib.font_manager:findfont: score(<Font 'Waree' (Waree-BoldOblique.ttf) oblique normal 700 normal>) = 11.335
+DEBUG:matplotlib.font_manager:findfont: Matching sans\-serif:style=normal:variant=normal:weight=normal:stretch=normal:size=12.0 to DejaVu Sans ('/data3/linming/.conda/envs/dnabert/lib/python3.6/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSans.ttf') with score of 0.050000.
+INFO:__main__:Loading features from cached file /data3/linming/DNABERT/examples/data/no_val_mutant/cached_dev_6-new-12w-0_200_dnaprom
+INFO:__main__:***** Running evaluation  *****
+INFO:__main__:  Num examples = 151
+INFO:__main__:  Batch size = 128
+INFO:__main__:***** Eval results  *****
+INFO:__main__:  acc = 0.7152317880794702
+INFO:__main__:  auc = 0.7962962962962964
+INFO:__main__:  f1 = 0.7111269297504115
+INFO:__main__:  mcc = 0.47809434589231814
+INFO:__main__:  precision = 0.7508741258741258
+INFO:__main__:  recall = 0.7277777777777779
+INFO:__main__:{"eval_acc": 0.7152317880794702, "eval_f1": 0.7111269297504115, "eval_mcc": 0.47809434589231814, "eval_auc": 0.7962962962962964, "eval_precision": 0.7508741258741258, "eval_recall": 0.7277777777777779, "learning_rate": 3.809523809523809e-05, "loss": 0.6473823457956314, "step": 200}
+INFO:__main__:Loading features from cached file /data3/linming/DNABERT/examples/data/no_val_mutant/cached_dev_6-new-12w-0_200_dnaprom
+INFO:__main__:***** Running evaluation  *****
+INFO:__main__:  Num examples = 151
+INFO:__main__:  Batch size = 128
+INFO:__main__:***** Eval results  *****
+INFO:__main__:  acc = 0.7483443708609272
+INFO:__main__:  auc = 0.7982363315696649
+INFO:__main__:  f1 = 0.7483333333333333
+INFO:__main__:  mcc = 0.5061796625392408
+INFO:__main__:  precision = 0.7533580770590315
+INFO:__main__:  recall = 0.7528218694885361
+INFO:__main__:{"eval_acc": 0.7483443708609272, "eval_f1": 0.7483333333333333, "eval_mcc": 0.5061796625392408, "eval_auc": 0.7982363315696649, "eval_precision": 0.7533580770590315, "eval_recall": 0.7528218694885361, "learning_rate": 5.714285714285714e-05, "loss": 0.6299088943004608, "step": 300}
+INFO:__main__:Loading features from cached file /data3/linming/DNABERT/examples/data/no_val_mutant/cached_dev_6-new-12w-0_200_dnaprom
+INFO:__main__:***** Running evaluation  *****
+INFO:__main__:  Num examples = 151
+INFO:__main__:  Batch size = 128
+INFO:__main__:***** Eval results  *****
+INFO:__main__:  acc = 0.7417218543046358
+INFO:__main__:  auc = 0.7869488536155202
+INFO:__main__:  f1 = 0.7394824153948241
+INFO:__main__:  mcc = 0.5212835286281098
+INFO:__main__:  precision = 0.769078947368421
+INFO:__main__:  recall = 0.7524691358024691
+INFO:__main__:{"eval_acc": 0.7417218543046358, "eval_f1": 0.7394824153948241, "eval_mcc": 0.5212835286281098, "eval_auc": 0.7869488536155202, "eval_precision": 0.769078947368421, "eval_recall": 0.7524691358024691, "learning_rate": 7.619047619047618e-05, "loss": 0.6395823258161545, "step": 400}
+INFO:__main__:Loading features from cached file /data3/linming/DNABERT/examples/data/no_val_mutant/cached_dev_6-new-12w-0_200_dnaprom
+INFO:__main__:***** Running evaluation  *****
+INFO:__main__:  Num examples = 151
+INFO:__main__:  Batch size = 128
+INFO:__main__:***** Eval results  *****
+INFO:__main__:  acc = 0.7417218543046358
+INFO:__main__:  auc = 0.7661375661375662
+INFO:__main__:  f1 = 0.7417218543046357
+INFO:__main__:  mcc = 0.49135802469135803
+INFO:__main__:  precision = 0.745679012345679
+INFO:__main__:  recall = 0.745679012345679
+INFO:__main__:{"eval_acc": 0.7417218543046358, "eval_f1": 0.7417218543046357, "eval_mcc": 0.49135802469135803, "eval_auc": 0.7661375661375662, "eval_precision": 0.745679012345679, "eval_recall": 0.745679012345679, "learning_rate": 9.523809523809524e-05, "loss": 0.6461080807447434, "step": 500}
+INFO:__main__:Loading features from cached file /data3/linming/DNABERT/examples/data/no_val_mutant/cached_dev_6-new-12w-0_200_dnaprom
+INFO:__main__:***** Running evaluation  *****
+INFO:__main__:  Num examples = 151
+INFO:__main__:  Batch size = 128
+INFO:__main__:***** Eval results  *****
+INFO:__main__:  acc = 0.6688741721854304
+INFO:__main__:  auc = 0.734920634920635
+INFO:__main__:  f1 = 0.667693661971831
+INFO:__main__:  mcc = 0.335622890211066
+INFO:__main__:  precision = 0.6675457102672293
+INFO:__main__:  recall = 0.6680776014109348
+INFO:__main__:{"eval_acc": 0.6688741721854304, "eval_f1": 0.667693661971831, "eval_mcc": 0.335622890211066, "eval_auc": 0.734920634920635, "eval_precision": 0.6675457102672293, "eval_recall": 0.6680776014109348, "learning_rate": 0.00011428571428571428, "loss": 0.6494460725784301, "step": 600}
+INFO:__main__:Loading features from cached file /data3/linming/DNABERT/examples/data/no_val_mutant/cached_dev_6-new-12w-0_200_dnaprom
+INFO:__main__:***** Running evaluation  *****
+INFO:__main__:  Num examples = 151
+INFO:__main__:  Batch size = 128
+INFO:__main__:***** Eval results  *****
+INFO:__main__:  acc = 0.7086092715231788
+INFO:__main__:  auc = 0.7844797178130513
+INFO:__main__:  f1 = 0.7048685145700071
+INFO:__main__:  mcc = 0.4610465783539109
+INFO:__main__:  precision = 0.7408548324990374
+INFO:__main__:  recall = 0.7206349206349206
+INFO:__main__:{"eval_acc": 0.7086092715231788, "eval_f1": 0.7048685145700071, "eval_mcc": 0.4610465783539109, "eval_auc": 0.7844797178130513, "eval_precision": 0.7408548324990374, "eval_recall": 0.7206349206349206, "learning_rate": 0.00013333333333333334, "loss": 0.6402800142765045, "step": 700}
+INFO:__main__:Loading features from cached file /data3/linming/DNABERT/examples/data/no_val_mutant/cached_dev_6-new-12w-0_200_dnaprom
+INFO:__main__:***** Running evaluation  *****
+INFO:__main__:  Num examples = 151
+INFO:__main__:  Batch size = 128
+INFO:__main__:***** Eval results  *****
+INFO:__main__:  acc = 0.7218543046357616
+INFO:__main__:  auc = 0.7714285714285715
+INFO:__main__:  f1 = 0.7212552742616034
+INFO:__main__:  mcc = 0.4435270314970764
+INFO:__main__:  precision = 0.7212179712179712
+INFO:__main__:  recall = 0.7223104056437389
+INFO:__main__:{"eval_acc": 0.7218543046357616, "eval_f1": 0.7212552742616034, "eval_mcc": 0.4435270314970764, "eval_auc": 0.7714285714285715, "eval_precision": 0.7212179712179712, "eval_recall": 0.7223104056437389, "learning_rate": 0.00015238095238095237, "loss": 0.6403194445371628, "step": 800}
+INFO:__main__:Loading features from cached file /data3/linming/DNABERT/examples/data/no_val_mutant/cached_dev_6-new-12w-0_200_dnaprom
+INFO:__main__:***** Running evaluation  *****
+INFO:__main__:  Num examples = 151
+INFO:__main__:  Batch size = 128
+INFO:__main__:***** Eval results  *****
+INFO:__main__:  acc = 0.7152317880794702
+INFO:__main__:  auc = 0.7285714285714285
+INFO:__main__:  f1 = 0.7134219005163966
+INFO:__main__:  mcc = 0.4610979378322514
+INFO:__main__:  precision = 0.7363737486095662
+INFO:__main__:  recall = 0.7248677248677249
+INFO:__main__:{"eval_acc": 0.7152317880794702, "eval_f1": 0.7134219005163966, "eval_mcc": 0.4610979378322514, "eval_auc": 0.7285714285714285, "eval_precision": 0.7363737486095662, "eval_recall": 0.7248677248677249, "learning_rate": 0.00017142857142857143, "loss": 0.6661955308914185, "step": 900}
+INFO:__main__:Loading features from cached file /data3/linming/DNABERT/examples/data/no_val_mutant/cached_dev_6-new-12w-0_200_dnaprom
+INFO:__main__:***** Running evaluation  *****
+INFO:__main__:  Num examples = 151
+INFO:__main__:  Batch size = 128
+INFO:__main__:***** Eval results  *****
+INFO:__main__:  acc = 0.695364238410596
+INFO:__main__:  auc = 0.7175485008818342
+INFO:__main__:  f1 = 0.693089430894309
+INFO:__main__:  mcc = 0.42254853902018646
+INFO:__main__:  precision = 0.717338559163867
+INFO:__main__:  recall = 0.705379188712522
+INFO:__main__:{"eval_acc": 0.695364238410596, "eval_f1": 0.693089430894309, "eval_mcc": 0.42254853902018646, "eval_auc": 0.7175485008818342, "eval_precision": 0.717338559163867, "eval_recall": 0.705379188712522, "learning_rate": 0.00019047619047619048, "loss": 0.6685440939664841, "step": 1000}
+INFO:__main__:Loading features from cached file /data3/linming/DNABERT/examples/data/no_val_mutant/cached_dev_6-new-12w-0_200_dnaprom
+INFO:__main__:***** Running evaluation  *****
+INFO:__main__:  Num examples = 151
+INFO:__main__:  Batch size = 128
+INFO:__main__:***** Eval results  *****
+INFO:__main__:  acc = 0.6821192052980133
+INFO:__main__:  auc = 0.780952380952381
+INFO:__main__:  f1 = 0.6681318681318681
+INFO:__main__:  mcc = 0.4575411783431565
+INFO:__main__:  precision = 0.7606456043956045
+INFO:__main__:  recall = 0.7007936507936507
+INFO:__main__:{"eval_acc": 0.6821192052980133, "eval_f1": 0.6681318681318681, "eval_mcc": 0.4575411783431565, "eval_auc": 0.780952380952381, "eval_precision": 0.7606456043956045, "eval_recall": 0.7007936507936507, "learning_rate": 0.00019761904761904763, "loss": 0.6413666450977326, "step": 1100}
+INFO:__main__:Loading features from cached file /data3/linming/DNABERT/examples/data/no_val_mutant/cached_dev_6-new-12w-0_200_dnaprom
+INFO:__main__:***** Running evaluation  *****
+INFO:__main__:  Num examples = 151
+INFO:__main__:  Batch size = 128
+INFO:__main__:***** Eval results  *****
+INFO:__main__:  acc = 0.7350993377483444
+INFO:__main__:  auc = 0.787389770723104
+INFO:__main__:  f1 = 0.7331212442559208
+INFO:__main__:  mcc = 0.5047359534367363
+INFO:__main__:  precision = 0.7596117954460619
+INFO:__main__:  recall = 0.745326278659612
+INFO:__main__:{"eval_acc": 0.7350993377483444, "eval_f1": 0.7331212442559208, "eval_mcc": 0.5047359534367363, "eval_auc": 0.787389770723104, "eval_precision": 0.7596117954460619, "eval_recall": 0.745326278659612, "learning_rate": 0.00019285714285714286, "loss": 0.6398923420906066, "step": 1200}
+INFO:__main__:Loading features from cached file /data3/linming/DNABERT/examples/data/no_val_mutant/cached_dev_6-new-12w-0_200_dnaprom
+INFO:__main__:***** Running evaluation  *****
+INFO:__main__:  Num examples = 151
+INFO:__main__:  Batch size = 128
+INFO:__main__:***** Eval results  *****
+INFO:__main__:  acc = 0.7086092715231788
+INFO:__main__:  auc = 0.7663139329805997
+INFO:__main__:  f1 = 0.7075704225352113
+INFO:__main__:  mcc = 0.4405591006158309
+INFO:__main__:  precision = 0.7238615664845174
+INFO:__main__:  recall = 0.7167548500881835
+INFO:__main__:{"eval_acc": 0.7086092715231788, "eval_f1": 0.7075704225352113, "eval_mcc": 0.4405591006158309, "eval_auc": 0.7663139329805997, "eval_precision": 0.7238615664845174, "eval_recall": 0.7167548500881835, "learning_rate": 0.0001880952380952381, "loss": 0.631452829837799, "step": 1300}
+INFO:__main__:Loading features from cached file /data3/linming/DNABERT/examples/data/no_val_mutant/cached_dev_6-new-12w-0_200_dnaprom
+INFO:__main__:***** Running evaluation  *****
+INFO:__main__:  Num examples = 151
+INFO:__main__:  Batch size = 128
+INFO:__main__:***** Eval results  *****
+INFO:__main__:  acc = 0.6688741721854304
+INFO:__main__:  auc = 0.7179894179894181
+INFO:__main__:  f1 = 0.6623434704830053
+INFO:__main__:  mcc = 0.38903658433087834
+INFO:__main__:  precision = 0.7071828731492598
+INFO:__main__:  recall = 0.6826278659611993
+INFO:__main__:{"eval_acc": 0.6688741721854304, "eval_f1": 0.6623434704830053, "eval_mcc": 0.38903658433087834, "eval_auc": 0.7179894179894181, "eval_precision": 0.7071828731492598, "eval_recall": 0.6826278659611993, "learning_rate": 0.00018333333333333334, "loss": 0.8640068477392197, "step": 1400}
+INFO:__main__:Loading features from cached file /data3/linming/DNABERT/examples/data/no_val_mutant/cached_dev_6-new-12w-0_200_dnaprom
+INFO:__main__:***** Running evaluation  *****
+INFO:__main__:  Num examples = 151
+INFO:__main__:  Batch size = 128
+INFO:__main__:***** Eval results  *****
+INFO:__main__:  acc = 0.7218543046357616
+INFO:__main__:  auc = 0.7308641975308643
+INFO:__main__:  f1 = 0.7173796791443852
+INFO:__main__:  mcc = 0.495401825983388
+INFO:__main__:  precision = 0.7611764705882353
+INFO:__main__:  recall = 0.734920634920635
+INFO:__main__:{"eval_acc": 0.7218543046357616, "eval_f1": 0.7173796791443852, "eval_mcc": 0.495401825983388, "eval_auc": 0.7308641975308643, "eval_precision": 0.7611764705882353, "eval_recall": 0.734920634920635, "learning_rate": 0.0001785714285714286, "loss": 0.6382515811920166, "step": 1500}
+INFO:__main__:Loading features from cached file /data3/linming/DNABERT/examples/data/no_val_mutant/cached_dev_6-new-12w-0_200_dnaprom
+INFO:__main__:***** Running evaluation  *****
+INFO:__main__:  Num examples = 151
+INFO:__main__:  Batch size = 128
+INFO:__main__:***** Eval results  *****
+INFO:__main__:  acc = 0.7152317880794702
+INFO:__main__:  auc = 0.732716049382716
+INFO:__main__:  f1 = 0.7144302238641862
+INFO:__main__:  mcc = 0.45195447625019186
+INFO:__main__:  precision = 0.7290685030808264
+INFO:__main__:  recall = 0.7229276895943563
+INFO:__main__:{"eval_acc": 0.7152317880794702, "eval_f1": 0.7144302238641862, "eval_mcc": 0.45195447625019186, "eval_auc": 0.732716049382716, "eval_precision": 0.7290685030808264, "eval_recall": 0.7229276895943563, "learning_rate": 0.00017380952380952383, "loss": 0.6351162326335907, "step": 1600}
+INFO:__main__:Loading features from cached file /data3/linming/DNABERT/examples/data/no_val_mutant/cached_dev_6-new-12w-0_200_dnaprom
+INFO:__main__:***** Running evaluation  *****
+INFO:__main__:  Num examples = 151
+INFO:__main__:  Batch size = 128
+INFO:__main__:***** Eval results  *****
+INFO:__main__:  acc = 0.695364238410596
+INFO:__main__:  auc = 0.7511463844797179
+INFO:__main__:  f1 = 0.6947081575246132
+INFO:__main__:  mcc = 0.40951399053322857
+INFO:__main__:  precision = 0.7070707070707071
+INFO:__main__:  recall = 0.7024691358024692
+INFO:__main__:{"eval_acc": 0.695364238410596, "eval_f1": 0.6947081575246132, "eval_mcc": 0.40951399053322857, "eval_auc": 0.7511463844797179, "eval_precision": 0.7070707070707071, "eval_recall": 0.7024691358024692, "learning_rate": 0.00016904761904761904, "loss": 0.6374474763870239, "step": 1700}
+INFO:__main__:Loading features from cached file /data3/linming/DNABERT/examples/data/no_val_mutant/cached_dev_6-new-12w-0_200_dnaprom
+INFO:__main__:***** Running evaluation  *****
+INFO:__main__:  Num examples = 151
+INFO:__main__:  Batch size = 128
+INFO:__main__:***** Eval results  *****
+INFO:__main__:  acc = 0.6556291390728477
+INFO:__main__:  auc = 0.7125220458553793
+INFO:__main__:  f1 = 0.6512082444918266
+INFO:__main__:  mcc = 0.3497467648743896
+INFO:__main__:  precision = 0.6827108201771275
+INFO:__main__:  recall = 0.6673721340388008
+INFO:__main__:{"eval_acc": 0.6556291390728477, "eval_f1": 0.6512082444918266, "eval_mcc": 0.3497467648743896, "eval_auc": 0.7125220458553793, "eval_precision": 0.6827108201771275, "eval_recall": 0.6673721340388008, "learning_rate": 0.00016428571428571428, "loss": 0.6301486700773239, "step": 1800}
+INFO:__main__:Loading features from cached file /data3/linming/DNABERT/examples/data/no_val_mutant/cached_dev_6-new-12w-0_200_dnaprom
+INFO:__main__:***** Running evaluation  *****
+INFO:__main__:  Num examples = 151
+INFO:__main__:  Batch size = 128
+INFO:__main__:***** Eval results  *****
+INFO:__main__:  acc = 0.7086092715231788
+INFO:__main__:  auc = 0.7671957671957672
+INFO:__main__:  f1 = 0.7075704225352113
+INFO:__main__:  mcc = 0.4405591006158309
+INFO:__main__:  precision = 0.7238615664845174
+INFO:__main__:  recall = 0.7167548500881835
+INFO:__main__:{"eval_acc": 0.7086092715231788, "eval_f1": 0.7075704225352113, "eval_mcc": 0.4405591006158309, "eval_auc": 0.7671957671957672, "eval_precision": 0.7238615664845174, "eval_recall": 0.7167548500881835, "learning_rate": 0.00015952380952380954, "loss": 0.6282548379898071, "step": 1900}
+INFO:__main__:Loading features from cached file /data3/linming/DNABERT/examples/data/no_val_mutant/cached_dev_6-new-12w-0_200_dnaprom
+INFO:__main__:***** Running evaluation  *****
+INFO:__main__:  Num examples = 151
+INFO:__main__:  Batch size = 128
+INFO:__main__:***** Eval results  *****
+INFO:__main__:  acc = 0.7218543046357616
+INFO:__main__:  auc = 0.7649911816578484
+INFO:__main__:  f1 = 0.7218421052631578
+INFO:__main__:  mcc = 0.4528604235832413
+INFO:__main__:  precision = 0.7266702014846236
+INFO:__main__:  recall = 0.7261904761904762
+INFO:__main__:{"eval_acc": 0.7218543046357616, "eval_f1": 0.7218421052631578, "eval_mcc": 0.4528604235832413, "eval_auc": 0.7649911816578484, "eval_precision": 0.7266702014846236, "eval_recall": 0.7261904761904762, "learning_rate": 0.00015476190476190478, "loss": 0.6231235986948014, "step": 2000}
+INFO:__main__:Loading features from cached file /data3/linming/DNABERT/examples/data/no_val_mutant/cached_dev_6-new-12w-0_200_dnaprom
+INFO:__main__:***** Running evaluation  *****
+INFO:__main__:  Num examples = 151
+INFO:__main__:  Batch size = 128
+INFO:__main__:***** Eval results  *****
+INFO:__main__:  acc = 0.7218543046357616
+INFO:__main__:  auc = 0.776984126984127
+INFO:__main__:  f1 = 0.7218421052631578
+INFO:__main__:  mcc = 0.4528604235832413
+INFO:__main__:  precision = 0.7266702014846236
+INFO:__main__:  recall = 0.7261904761904762
+INFO:__main__:{"eval_acc": 0.7218543046357616, "eval_f1": 0.7218421052631578, "eval_mcc": 0.4528604235832413, "eval_auc": 0.776984126984127, "eval_precision": 0.7266702014846236, "eval_recall": 0.7261904761904762, "learning_rate": 0.00015000000000000001, "loss": 0.620222020149231, "step": 2100}
+INFO:__main__:Loading features from cached file /data3/linming/DNABERT/examples/data/no_val_mutant/cached_dev_6-new-12w-0_200_dnaprom
+INFO:__main__:***** Running evaluation  *****
+INFO:__main__:  Num examples = 151
+INFO:__main__:  Batch size = 128
+INFO:__main__:***** Eval results  *****
+INFO:__main__:  acc = 0.7086092715231788
+INFO:__main__:  auc = 0.7733686067019402
+INFO:__main__:  f1 = 0.7079817158931083
+INFO:__main__:  mcc = 0.43644631308136334
+INFO:__main__:  precision = 0.7206890331890332
+INFO:__main__:  recall = 0.715784832451499
+INFO:__main__:{"eval_acc": 0.7086092715231788, "eval_f1": 0.7079817158931083, "eval_mcc": 0.43644631308136334, "eval_auc": 0.7733686067019402, "eval_precision": 0.7206890331890332, "eval_recall": 0.715784832451499, "learning_rate": 0.00014523809523809525, "loss": 0.6196683597564697, "step": 2200}
+INFO:__main__:Loading features from cached file /data3/linming/DNABERT/examples/data/no_val_mutant/cached_dev_6-new-12w-0_200_dnaprom
+INFO:__main__:***** Running evaluation  *****
+INFO:__main__:  Num examples = 151
+INFO:__main__:  Batch size = 128
+INFO:__main__:***** Eval results  *****
+INFO:__main__:  acc = 0.695364238410596
+INFO:__main__:  auc = 0.7274250440917107
+INFO:__main__:  f1 = 0.6947081575246132
+INFO:__main__:  mcc = 0.40951399053322857
+INFO:__main__:  precision = 0.7070707070707071
+INFO:__main__:  recall = 0.7024691358024692
+INFO:__main__:{"eval_acc": 0.695364238410596, "eval_f1": 0.6947081575246132, "eval_mcc": 0.40951399053322857, "eval_auc": 0.7274250440917107, "eval_precision": 0.7070707070707071, "eval_recall": 0.7024691358024692, "learning_rate": 0.00014047619047619049, "loss": 0.6120936149358749, "step": 2300}
+INFO:__main__:Loading features from cached file /data3/linming/DNABERT/examples/data/no_val_mutant/cached_dev_6-new-12w-0_200_dnaprom
+INFO:__main__:***** Running evaluation  *****
+INFO:__main__:  Num examples = 151
+INFO:__main__:  Batch size = 128
+INFO:__main__:***** Eval results  *****
+INFO:__main__:  acc = 0.695364238410596
+INFO:__main__:  auc = 0.7511463844797178
+INFO:__main__:  f1 = 0.6953508771929824
+INFO:__main__:  mcc = 0.3968283478539948
+INFO:__main__:  precision = 0.6982394366197183
+INFO:__main__:  recall = 0.698589065255732
+INFO:__main__:{"eval_acc": 0.695364238410596, "eval_f1": 0.6953508771929824, "eval_mcc": 0.3968283478539948, "eval_auc": 0.7511463844797178, "eval_precision": 0.6982394366197183, "eval_recall": 0.698589065255732, "learning_rate": 0.00013571428571428572, "loss": 0.6127587419748306, "step": 2400}
+INFO:__main__:Loading features from cached file /data3/linming/DNABERT/examples/data/no_val_mutant/cached_dev_6-new-12w-0_200_dnaprom
+INFO:__main__:***** Running evaluation  *****
+INFO:__main__:  Num examples = 151
+INFO:__main__:  Batch size = 128
+INFO:__main__:***** Eval results  *****
+INFO:__main__:  acc = 0.695364238410596
+INFO:__main__:  auc = 0.7733686067019401
+INFO:__main__:  f1 = 0.6942781690140845
+INFO:__main__:  mcc = 0.38880133346591483
+INFO:__main__:  precision = 0.6940928270042194
+INFO:__main__:  recall = 0.6947089947089947
+INFO:__main__:{"eval_acc": 0.695364238410596, "eval_f1": 0.6942781690140845, "eval_mcc": 0.38880133346591483, "eval_auc": 0.7733686067019401, "eval_precision": 0.6940928270042194, "eval_recall": 0.6947089947089947, "learning_rate": 0.00013095238095238096, "loss": 0.6079219871759415, "step": 2500}
+INFO:__main__:Loading features from cached file /data3/linming/DNABERT/examples/data/no_val_mutant/cached_dev_6-new-12w-0_200_dnaprom
+INFO:__main__:***** Running evaluation  *****
+INFO:__main__:  Num examples = 151
+INFO:__main__:  Batch size = 128
+INFO:__main__:***** Eval results  *****
+INFO:__main__:  acc = 0.6887417218543046
+INFO:__main__:  auc = 0.690652557319224
+INFO:__main__:  f1 = 0.6882495058203382
+INFO:__main__:  mcc = 0.37801362893470586
+INFO:__main__:  precision = 0.6885087719298246
+INFO:__main__:  recall = 0.6895061728395062
+INFO:__main__:{"eval_acc": 0.6887417218543046, "eval_f1": 0.6882495058203382, "eval_mcc": 0.37801362893470586, "eval_auc": 0.690652557319224, "eval_precision": 0.6885087719298246, "eval_recall": 0.6895061728395062, "learning_rate": 0.0001261904761904762, "loss": 0.6104131799936294, "step": 2600}
+INFO:__main__:Loading features from cached file /data3/linming/DNABERT/examples/data/no_val_mutant/cached_dev_6-new-12w-0_200_dnaprom
+INFO:__main__:***** Running evaluation  *****
+INFO:__main__:  Num examples = 151
+INFO:__main__:  Batch size = 128
+INFO:__main__:***** Eval results  *****
+INFO:__main__:  acc = 0.7218543046357616
+INFO:__main__:  auc = 0.7678130511463844
+INFO:__main__:  f1 = 0.7215489989462593
+INFO:__main__:  mcc = 0.4453841360924501
+INFO:__main__:  precision = 0.7221052631578948
+INFO:__main__:  recall = 0.7232804232804233
+INFO:__main__:{"eval_acc": 0.7218543046357616, "eval_f1": 0.7215489989462593, "eval_mcc": 0.4453841360924501, "eval_auc": 0.7678130511463844, "eval_precision": 0.7221052631578948, "eval_recall": 0.7232804232804233, "learning_rate": 0.00012142857142857143, "loss": 0.6093661957979202, "step": 2700}
+INFO:__main__:Loading features from cached file /data3/linming/DNABERT/examples/data/no_val_mutant/cached_dev_6-new-12w-0_200_dnaprom
+INFO:__main__:***** Running evaluation  *****
+INFO:__main__:  Num examples = 151
+INFO:__main__:  Batch size = 128
+INFO:__main__:***** Eval results  *****
+INFO:__main__:  acc = 0.6821192052980133
+INFO:__main__:  auc = 0.6885361552028219
+INFO:__main__:  f1 = 0.6731601731601731
+INFO:__main__:  mcc = 0.4314913894167461
+INFO:__main__:  precision = 0.7352201257861635
+INFO:__main__:  recall = 0.6978835978835979
+INFO:__main__:{"eval_acc": 0.6821192052980133, "eval_f1": 0.6731601731601731, "eval_mcc": 0.4314913894167461, "eval_auc": 0.6885361552028219, "eval_precision": 0.7352201257861635, "eval_recall": 0.6978835978835979, "learning_rate": 0.00011666666666666668, "loss": 0.5983495390415192, "step": 2800}
+INFO:__main__:Loading features from cached file /data3/linming/DNABERT/examples/data/no_val_mutant/cached_dev_6-new-12w-0_200_dnaprom
+INFO:__main__:***** Running evaluation  *****
+INFO:__main__:  Num examples = 151
+INFO:__main__:  Batch size = 128
+INFO:__main__:***** Eval results  *****
+INFO:__main__:  acc = 0.6754966887417219
+INFO:__main__:  auc = 0.7448853615520282
+INFO:__main__:  f1 = 0.6752688172043011
+INFO:__main__:  mcc = 0.3640122417970511
+INFO:__main__:  precision = 0.6829768270944742
+INFO:__main__:  recall = 0.6810405643738977
+INFO:__main__:{"eval_acc": 0.6754966887417219, "eval_f1": 0.6752688172043011, "eval_mcc": 0.3640122417970511, "eval_auc": 0.7448853615520282, "eval_precision": 0.6829768270944742, "eval_recall": 0.6810405643738977, "learning_rate": 0.00011190476190476191, "loss": 0.606176745891571, "step": 2900}
+INFO:__main__:Loading features from cached file /data3/linming/DNABERT/examples/data/no_val_mutant/cached_dev_6-new-12w-0_200_dnaprom
+INFO:__main__:***** Running evaluation  *****
+INFO:__main__:  Num examples = 151
+INFO:__main__:  Batch size = 128
+INFO:__main__:***** Eval results  *****
+INFO:__main__:  acc = 0.6754966887417219
+INFO:__main__:  auc = 0.7423280423280423
+INFO:__main__:  f1 = 0.6740672217082948
+INFO:__main__:  mcc = 0.3749095068612106
+INFO:__main__:  precision = 0.691025641025641
+INFO:__main__:  recall = 0.6839506172839507
+INFO:__main__:{"eval_acc": 0.6754966887417219, "eval_f1": 0.6740672217082948, "eval_mcc": 0.3749095068612106, "eval_auc": 0.7423280423280423, "eval_precision": 0.691025641025641, "eval_recall": 0.6839506172839507, "learning_rate": 0.00010714285714285715, "loss": 0.6090259021520614, "step": 3000}
+INFO:__main__:Loading features from cached file /data3/linming/DNABERT/examples/data/no_val_mutant/cached_dev_6-new-12w-0_200_dnaprom
+INFO:__main__:***** Running evaluation  *****
+INFO:__main__:  Num examples = 151
+INFO:__main__:  Batch size = 128
+INFO:__main__:***** Eval results  *****
+INFO:__main__:  acc = 0.6754966887417219
+INFO:__main__:  auc = 0.7204585537918872
+INFO:__main__:  f1 = 0.6754397508444094
+INFO:__main__:  mcc = 0.3556968721019692
+INFO:__main__:  precision = 0.6775668073136427
+INFO:__main__:  recall = 0.6781305114638447
+INFO:__main__:{"eval_acc": 0.6754966887417219, "eval_f1": 0.6754397508444094, "eval_mcc": 0.3556968721019692, "eval_auc": 0.7204585537918872, "eval_precision": 0.6775668073136427, "eval_recall": 0.6781305114638447, "learning_rate": 0.00010238095238095237, "loss": 0.5928822356462479, "step": 3100}
+INFO:__main__:Loading features from cached file /data3/linming/DNABERT/examples/data/no_val_mutant/cached_dev_6-new-12w-0_200_dnaprom
+INFO:__main__:***** Running evaluation  *****
+INFO:__main__:  Num examples = 151
+INFO:__main__:  Batch size = 128
+INFO:__main__:***** Eval results  *****
+INFO:__main__:  acc = 0.6821192052980133
+INFO:__main__:  auc = 0.7330687830687831
+INFO:__main__:  f1 = 0.6821052631578948
+INFO:__main__:  mcc = 0.37022040801120915
+INFO:__main__:  precision = 0.6849471830985916
+INFO:__main__:  recall = 0.6852733686067018
+INFO:__main__:{"eval_acc": 0.6821192052980133, "eval_f1": 0.6821052631578948, "eval_mcc": 0.37022040801120915, "eval_auc": 0.7330687830687831, "eval_precision": 0.6849471830985916, "eval_recall": 0.6852733686067018, "learning_rate": 9.761904761904762e-05, "loss": 0.5855740517377853, "step": 3200}
+INFO:__main__:Loading features from cached file /data3/linming/DNABERT/examples/data/no_val_mutant/cached_dev_6-new-12w-0_200_dnaprom
+INFO:__main__:***** Running evaluation  *****
+INFO:__main__:  Num examples = 151
+INFO:__main__:  Batch size = 128
+INFO:__main__:***** Eval results  *****
+INFO:__main__:  acc = 0.6887417218543046
+INFO:__main__:  auc = 0.76331569664903
+INFO:__main__:  f1 = 0.6878655935259708
+INFO:__main__:  mcc = 0.37627679831614363
+INFO:__main__:  precision = 0.6877414822620302
+INFO:__main__:  recall = 0.6885361552028219
+INFO:__main__:{"eval_acc": 0.6887417218543046, "eval_f1": 0.6878655935259708, "eval_mcc": 0.37627679831614363, "eval_auc": 0.76331569664903, "eval_precision": 0.6877414822620302, "eval_recall": 0.6885361552028219, "learning_rate": 9.285714285714286e-05, "loss": 0.582439523935318, "step": 3300}
+INFO:__main__:Loading features from cached file /data3/linming/DNABERT/examples/data/no_val_mutant/cached_dev_6-new-12w-0_200_dnaprom
+INFO:__main__:***** Running evaluation  *****
+INFO:__main__:  Num examples = 151
+INFO:__main__:  Batch size = 128
+INFO:__main__:***** Eval results  *****
+INFO:__main__:  acc = 0.695364238410596
+INFO:__main__:  auc = 0.7500881834215168
+INFO:__main__:  f1 = 0.69502985598876
+INFO:__main__:  mcc = 0.3922616996390852
+INFO:__main__:  precision = 0.6956140350877194
+INFO:__main__:  recall = 0.6966490299823633
+INFO:__main__:{"eval_acc": 0.695364238410596, "eval_f1": 0.69502985598876, "eval_mcc": 0.3922616996390852, "eval_auc": 0.7500881834215168, "eval_precision": 0.6956140350877194, "eval_recall": 0.6966490299823633, "learning_rate": 8.80952380952381e-05, "loss": 0.5820852148532868, "step": 3400}
+INFO:__main__:Loading features from cached file /data3/linming/DNABERT/examples/data/no_val_mutant/cached_dev_6-new-12w-0_200_dnaprom
+INFO:__main__:***** Running evaluation  *****
+INFO:__main__:  Num examples = 151
+INFO:__main__:  Batch size = 128
+INFO:__main__:***** Eval results  *****
+INFO:__main__:  acc = 0.6887417218543046
+INFO:__main__:  auc = 0.7495590828924162
+INFO:__main__:  f1 = 0.6867634726574569
+INFO:__main__:  mcc = 0.3735877802347519
+INFO:__main__:  precision = 0.6869918699186992
+INFO:__main__:  recall = 0.6865961199294532
+INFO:__main__:{"eval_acc": 0.6887417218543046, "eval_f1": 0.6867634726574569, "eval_mcc": 0.3735877802347519, "eval_auc": 0.7495590828924162, "eval_precision": 0.6869918699186992, "eval_recall": 0.6865961199294532, "learning_rate": 8.333333333333334e-05, "loss": 0.5743593364953995, "step": 3500}
+INFO:__main__:Loading features from cached file /data3/linming/DNABERT/examples/data/no_val_mutant/cached_dev_6-new-12w-0_200_dnaprom
+INFO:__main__:***** Running evaluation  *****
+INFO:__main__:  Num examples = 151
+INFO:__main__:  Batch size = 128
+INFO:__main__:***** Eval results  *****
+INFO:__main__:  acc = 0.6887417218543046
+INFO:__main__:  auc = 0.7466490299823634
+INFO:__main__:  f1 = 0.6867634726574569
+INFO:__main__:  mcc = 0.3735877802347519
+INFO:__main__:  precision = 0.6869918699186992
+INFO:__main__:  recall = 0.6865961199294532
+INFO:__main__:{"eval_acc": 0.6887417218543046, "eval_f1": 0.6867634726574569, "eval_mcc": 0.3735877802347519, "eval_auc": 0.7466490299823634, "eval_precision": 0.6869918699186992, "eval_recall": 0.6865961199294532, "learning_rate": 7.857142857142858e-05, "loss": 0.5796365734934806, "step": 3600}
+INFO:__main__:Loading features from cached file /data3/linming/DNABERT/examples/data/no_val_mutant/cached_dev_6-new-12w-0_200_dnaprom
+INFO:__main__:***** Running evaluation  *****
+INFO:__main__:  Num examples = 151
+INFO:__main__:  Batch size = 128
+INFO:__main__:***** Eval results  *****
+INFO:__main__:  acc = 0.695364238410596
+INFO:__main__:  auc = 0.7568783068783069
+INFO:__main__:  f1 = 0.6947081575246132
+INFO:__main__:  mcc = 0.3903952728647412
+INFO:__main__:  precision = 0.6947174447174447
+INFO:__main__:  recall = 0.695679012345679
+INFO:__main__:{"eval_acc": 0.695364238410596, "eval_f1": 0.6947081575246132, "eval_mcc": 0.3903952728647412, "eval_auc": 0.7568783068783069, "eval_precision": 0.6947174447174447, "eval_recall": 0.695679012345679, "learning_rate": 7.380952380952382e-05, "loss": 0.5696680337190628, "step": 3700}
+INFO:__main__:Loading features from cached file /data3/linming/DNABERT/examples/data/no_val_mutant/cached_dev_6-new-12w-0_200_dnaprom
+INFO:__main__:***** Running evaluation  *****
+INFO:__main__:  Num examples = 151
+INFO:__main__:  Batch size = 128
+INFO:__main__:***** Eval results  *****
+INFO:__main__:  acc = 0.6490066225165563
+INFO:__main__:  auc = 0.7546737213403881
+INFO:__main__:  f1 = 0.6487601492209787
+INFO:__main__:  mcc = 0.3003175893556166
+INFO:__main__:  precision = 0.6497893997893998
+INFO:__main__:  recall = 0.6505291005291005
+INFO:__main__:{"eval_acc": 0.6490066225165563, "eval_f1": 0.6487601492209787, "eval_mcc": 0.3003175893556166, "eval_auc": 0.7546737213403881, "eval_precision": 0.6497893997893998, "eval_recall": 0.6505291005291005, "learning_rate": 6.904761904761905e-05, "loss": 0.5654668992757798, "step": 3800}
+INFO:__main__:Loading features from cached file /data3/linming/DNABERT/examples/data/no_val_mutant/cached_dev_6-new-12w-0_200_dnaprom
+INFO:__main__:***** Running evaluation  *****
+INFO:__main__:  Num examples = 151
+INFO:__main__:  Batch size = 128
+INFO:__main__:***** Eval results  *****
+INFO:__main__:  acc = 0.6688741721854304
+INFO:__main__:  auc = 0.7181657848324515
+INFO:__main__:  f1 = 0.667693661971831
+INFO:__main__:  mcc = 0.335622890211066
+INFO:__main__:  precision = 0.6675457102672293
+INFO:__main__:  recall = 0.6680776014109348
+INFO:__main__:{"eval_acc": 0.6688741721854304, "eval_f1": 0.667693661971831, "eval_mcc": 0.335622890211066, "eval_auc": 0.7181657848324515, "eval_precision": 0.6675457102672293, "eval_recall": 0.6680776014109348, "learning_rate": 6.428571428571429e-05, "loss": 0.5660433125495911, "step": 3900}
+INFO:__main__:Loading features from cached file /data3/linming/DNABERT/examples/data/no_val_mutant/cached_dev_6-new-12w-0_200_dnaprom
+INFO:__main__:***** Running evaluation  *****
+INFO:__main__:  Num examples = 151
+INFO:__main__:  Batch size = 128
+INFO:__main__:***** Eval results  *****
+INFO:__main__:  acc = 0.6688741721854304
+INFO:__main__:  auc = 0.6947089947089947
+INFO:__main__:  f1 = 0.667693661971831
+INFO:__main__:  mcc = 0.335622890211066
+INFO:__main__:  precision = 0.6675457102672293
+INFO:__main__:  recall = 0.6680776014109348
+INFO:__main__:{"eval_acc": 0.6688741721854304, "eval_f1": 0.667693661971831, "eval_mcc": 0.335622890211066, "eval_auc": 0.6947089947089947, "eval_precision": 0.6675457102672293, "eval_recall": 0.6680776014109348, "learning_rate": 5.9523809523809524e-05, "loss": 0.5586979222297669, "step": 4000}
+INFO:transformers.configuration_utils:Configuration saved in /data3/linming/DNABERT/examples/output/no_val_mutant/checkpoint-4000/config.json
+INFO:transformers.modeling_utils:Model weights saved in /data3/linming/DNABERT/examples/output/no_val_mutant/checkpoint-4000/pytorch_model.bin
+INFO:__main__:Saving model checkpoint to /data3/linming/DNABERT/examples/output/no_val_mutant/checkpoint-4000
+INFO:__main__:Saving optimizer and scheduler states to /data3/linming/DNABERT/examples/output/no_val_mutant/checkpoint-4000
+INFO:__main__:Loading features from cached file /data3/linming/DNABERT/examples/data/no_val_mutant/cached_dev_6-new-12w-0_200_dnaprom
+INFO:__main__:***** Running evaluation  *****
+INFO:__main__:  Num examples = 151
+INFO:__main__:  Batch size = 128
+INFO:__main__:***** Eval results  *****
+INFO:__main__:  acc = 0.7019867549668874
+INFO:__main__:  auc = 0.7404761904761904
+INFO:__main__:  f1 = 0.7011479086950785
+INFO:__main__:  mcc = 0.4028520071775738
+INFO:__main__:  precision = 0.7010010537407798
+INFO:__main__:  recall = 0.7018518518518518
+INFO:__main__:{"eval_acc": 0.7019867549668874, "eval_f1": 0.7011479086950785, "eval_mcc": 0.4028520071775738, "eval_auc": 0.7404761904761904, "eval_precision": 0.7010010537407798, "eval_recall": 0.7018518518518518, "learning_rate": 5.4761904761904766e-05, "loss": 0.5562215340137482, "step": 4100}
+INFO:__main__:Loading features from cached file /data3/linming/DNABERT/examples/data/no_val_mutant/cached_dev_6-new-12w-0_200_dnaprom
+INFO:__main__:***** Running evaluation  *****
+INFO:__main__:  Num examples = 151
+INFO:__main__:  Batch size = 128
+INFO:__main__:***** Eval results  *****
+INFO:__main__:  acc = 0.6688741721854304
+INFO:__main__:  auc = 0.740652557319224
+INFO:__main__:  f1 = 0.6655740609496812
+INFO:__main__:  mcc = 0.33209689668089465
+INFO:__main__:  precision = 0.6669340463458111
+INFO:__main__:  recall = 0.6651675485008819
+INFO:__main__:{"eval_acc": 0.6688741721854304, "eval_f1": 0.6655740609496812, "eval_mcc": 0.33209689668089465, "eval_auc": 0.740652557319224, "eval_precision": 0.6669340463458111, "eval_recall": 0.6651675485008819, "learning_rate": 5e-05, "loss": 0.5497099107503891, "step": 4200}
+INFO:__main__:Loading features from cached file /data3/linming/DNABERT/examples/data/no_val_mutant/cached_dev_6-new-12w-0_200_dnaprom
+INFO:__main__:***** Running evaluation  *****
+INFO:__main__:  Num examples = 151
+INFO:__main__:  Batch size = 128
+INFO:__main__:***** Eval results  *****
+INFO:__main__:  acc = 0.6887417218543046
+INFO:__main__:  auc = 0.746031746031746
+INFO:__main__:  f1 = 0.6867634726574569
+INFO:__main__:  mcc = 0.3735877802347519
+INFO:__main__:  precision = 0.6869918699186992
+INFO:__main__:  recall = 0.6865961199294532
+INFO:__main__:{"eval_acc": 0.6887417218543046, "eval_f1": 0.6867634726574569, "eval_mcc": 0.3735877802347519, "eval_auc": 0.746031746031746, "eval_precision": 0.6869918699186992, "eval_recall": 0.6865961199294532, "learning_rate": 4.523809523809524e-05, "loss": 0.5454824677109719, "step": 4300}
+INFO:__main__:Loading features from cached file /data3/linming/DNABERT/examples/data/no_val_mutant/cached_dev_6-new-12w-0_200_dnaprom
+INFO:__main__:***** Running evaluation  *****
+INFO:__main__:  Num examples = 151
+INFO:__main__:  Batch size = 128
+INFO:__main__:***** Eval results  *****
+INFO:__main__:  acc = 0.6887417218543046
+INFO:__main__:  auc = 0.7579365079365079
+INFO:__main__:  f1 = 0.6873706004140787
+INFO:__main__:  mcc = 0.3748019075867881
+INFO:__main__:  precision = 0.6872359154929577
+INFO:__main__:  recall = 0.6875661375661375
+INFO:__main__:{"eval_acc": 0.6887417218543046, "eval_f1": 0.6873706004140787, "eval_mcc": 0.3748019075867881, "eval_auc": 0.7579365079365079, "eval_precision": 0.6872359154929577, "eval_recall": 0.6875661375661375, "learning_rate": 4.047619047619048e-05, "loss": 0.541022478044033, "step": 4400}
+INFO:__main__:Loading features from cached file /data3/linming/DNABERT/examples/data/no_val_mutant/cached_dev_6-new-12w-0_200_dnaprom
+INFO:__main__:***** Running evaluation  *****
+INFO:__main__:  Num examples = 151
+INFO:__main__:  Batch size = 128
+INFO:__main__:***** Eval results  *****
+INFO:__main__:  acc = 0.6821192052980133
+INFO:__main__:  auc = 0.7276895943562611
+INFO:__main__:  f1 = 0.6804232804232804
+INFO:__main__:  mcc = 0.36084656084656086
+INFO:__main__:  precision = 0.6804232804232804
+INFO:__main__:  recall = 0.6804232804232804
+INFO:__main__:{"eval_acc": 0.6821192052980133, "eval_f1": 0.6804232804232804, "eval_mcc": 0.36084656084656086, "eval_auc": 0.7276895943562611, "eval_precision": 0.6804232804232804, "eval_recall": 0.6804232804232804, "learning_rate": 3.571428571428572e-05, "loss": 0.5430826205015182, "step": 4500}
+INFO:__main__:Loading features from cached file /data3/linming/DNABERT/examples/data/no_val_mutant/cached_dev_6-new-12w-0_200_dnaprom
+INFO:__main__:***** Running evaluation  *****
+INFO:__main__:  Num examples = 151
+INFO:__main__:  Batch size = 128
+INFO:__main__:***** Eval results  *****
+INFO:__main__:  acc = 0.6556291390728477
+INFO:__main__:  auc = 0.7181657848324514
+INFO:__main__:  f1 = 0.653057617532697
+INFO:__main__:  mcc = 0.30634692875825414
+INFO:__main__:  precision = 0.6535258681785967
+INFO:__main__:  recall = 0.6528218694885362
+INFO:__main__:{"eval_acc": 0.6556291390728477, "eval_f1": 0.653057617532697, "eval_mcc": 0.30634692875825414, "eval_auc": 0.7181657848324514, "eval_precision": 0.6535258681785967, "eval_recall": 0.6528218694885362, "learning_rate": 3.095238095238095e-05, "loss": 0.5462691685557366, "step": 4600}
+INFO:__main__:Loading features from cached file /data3/linming/DNABERT/examples/data/no_val_mutant/cached_dev_6-new-12w-0_200_dnaprom
+INFO:__main__:***** Running evaluation  *****
+INFO:__main__:  Num examples = 151
+INFO:__main__:  Batch size = 128
+INFO:__main__:***** Eval results  *****
+INFO:__main__:  acc = 0.6821192052980133
+INFO:__main__:  auc = 0.7227513227513228
+INFO:__main__:  f1 = 0.6804232804232804
+INFO:__main__:  mcc = 0.36084656084656086
+INFO:__main__:  precision = 0.6804232804232804
+INFO:__main__:  recall = 0.6804232804232804
+INFO:__main__:{"eval_acc": 0.6821192052980133, "eval_f1": 0.6804232804232804, "eval_mcc": 0.36084656084656086, "eval_auc": 0.7227513227513228, "eval_precision": 0.6804232804232804, "eval_recall": 0.6804232804232804, "learning_rate": 2.6190476190476192e-05, "loss": 0.5369173756241798, "step": 4700}
+INFO:__main__:Loading features from cached file /data3/linming/DNABERT/examples/data/no_val_mutant/cached_dev_6-new-12w-0_200_dnaprom
+INFO:__main__:***** Running evaluation  *****
+INFO:__main__:  Num examples = 151
+INFO:__main__:  Batch size = 128
+INFO:__main__:***** Eval results  *****
+INFO:__main__:  acc = 0.6821192052980133
+INFO:__main__:  auc = 0.7379188712522046
+INFO:__main__:  f1 = 0.6789510985116939
+INFO:__main__:  mcc = 0.35887032508389255
+INFO:__main__:  precision = 0.6803921568627451
+INFO:__main__:  recall = 0.6784832451499119
+INFO:__main__:{"eval_acc": 0.6821192052980133, "eval_f1": 0.6789510985116939, "eval_mcc": 0.35887032508389255, "eval_auc": 0.7379188712522046, "eval_precision": 0.6803921568627451, "eval_recall": 0.6784832451499119, "learning_rate": 2.1428571428571428e-05, "loss": 0.5308638504147529, "step": 4800}
+INFO:__main__:Loading features from cached file /data3/linming/DNABERT/examples/data/no_val_mutant/cached_dev_6-new-12w-0_200_dnaprom
+INFO:__main__:***** Running evaluation  *****
+INFO:__main__:  Num examples = 151
+INFO:__main__:  Batch size = 128
+INFO:__main__:***** Eval results  *****
+INFO:__main__:  acc = 0.695364238410596
+INFO:__main__:  auc = 0.7643738977072311
+INFO:__main__:  f1 = 0.691453447050462
+INFO:__main__:  mcc = 0.38513777198261373
+INFO:__main__:  precision = 0.6943247126436782
+INFO:__main__:  recall = 0.6908289241622575
+INFO:__main__:{"eval_acc": 0.695364238410596, "eval_f1": 0.691453447050462, "eval_mcc": 0.38513777198261373, "eval_auc": 0.7643738977072311, "eval_precision": 0.6943247126436782, "eval_recall": 0.6908289241622575, "learning_rate": 1.6666666666666667e-05, "loss": 0.5275584757328033, "step": 4900}
+INFO:__main__:Loading features from cached file /data3/linming/DNABERT/examples/data/no_val_mutant/cached_dev_6-new-12w-0_200_dnaprom
+INFO:__main__:***** Running evaluation  *****
+INFO:__main__:  Num examples = 151
+INFO:__main__:  Batch size = 128
+INFO:__main__:***** Eval results  *****
+INFO:__main__:  acc = 0.6821192052980133
+INFO:__main__:  auc = 0.762962962962963
+INFO:__main__:  f1 = 0.679745493107105
+INFO:__main__:  mcc = 0.359732256216415
+INFO:__main__:  precision = 0.6802799433026223
+INFO:__main__:  recall = 0.6794532627865961
+INFO:__main__:{"eval_acc": 0.6821192052980133, "eval_f1": 0.679745493107105, "eval_mcc": 0.359732256216415, "eval_auc": 0.762962962962963, "eval_precision": 0.6802799433026223, "eval_recall": 0.6794532627865961, "learning_rate": 1.1904761904761905e-05, "loss": 0.5233077239990235, "step": 5000}
+INFO:__main__:Loading features from cached file /data3/linming/DNABERT/examples/data/no_val_mutant/cached_dev_6-new-12w-0_200_dnaprom
+INFO:__main__:***** Running evaluation  *****
+INFO:__main__:  Num examples = 151
+INFO:__main__:  Batch size = 128
+INFO:__main__:***** Eval results  *****
+INFO:__main__:  acc = 0.6622516556291391
+INFO:__main__:  auc = 0.7627865961199295
+INFO:__main__:  f1 = 0.6601050447985171
+INFO:__main__:  mcc = 0.3202685412787523
+INFO:__main__:  precision = 0.6603039943442912
+INFO:__main__:  recall = 0.6599647266313933
+INFO:__main__:{"eval_acc": 0.6622516556291391, "eval_f1": 0.6601050447985171, "eval_mcc": 0.3202685412787523, "eval_auc": 0.7627865961199295, "eval_precision": 0.6603039943442912, "eval_recall": 0.6599647266313933, "learning_rate": 7.142857142857143e-06, "loss": 0.5175548094511032, "step": 5100}
+INFO:__main__:Loading features from cached file /data3/linming/DNABERT/examples/data/no_val_mutant/cached_dev_6-new-12w-0_200_dnaprom
+INFO:__main__:***** Running evaluation  *****
+INFO:__main__:  Num examples = 151
+INFO:__main__:  Batch size = 128
+INFO:__main__:***** Eval results  *****
+INFO:__main__:  acc = 0.6688741721854304
+INFO:__main__:  auc = 0.7567901234567902
+INFO:__main__:  f1 = 0.6655740609496812
+INFO:__main__:  mcc = 0.33209689668089465
+INFO:__main__:  precision = 0.6669340463458111
+INFO:__main__:  recall = 0.6651675485008819
+INFO:__main__:{"eval_acc": 0.6688741721854304, "eval_f1": 0.6655740609496812, "eval_mcc": 0.33209689668089465, "eval_auc": 0.7567901234567902, "eval_precision": 0.6669340463458111, "eval_recall": 0.6651675485008819, "learning_rate": 2.3809523809523808e-06, "loss": 0.5156827208399772, "step": 5200}
+INFO:__main__: global_step = 5250, average loss = 0.6025930962562561
+INFO:__main__:Saving model checkpoint to /data3/linming/DNABERT/examples/output/no_val_mutant/
+INFO:transformers.configuration_utils:Configuration saved in /data3/linming/DNABERT/examples/output/no_val_mutant/config.json
+INFO:transformers.modeling_utils:Model weights saved in /data3/linming/DNABERT/examples/output/no_val_mutant/pytorch_model.bin
+INFO:transformers.configuration_utils:loading configuration file /data3/linming/DNABERT/examples/output/no_val_mutant/config.json
+INFO:transformers.configuration_utils:Model config BertConfig {
+  "architectures": [
+    "BertForSequenceClassification_textCNN"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "bos_token_id": 0,
+  "do_sample": false,
+  "eos_token_ids": 0,
+  "filter_num": 128,
+  "filter_size": [
+    2,
+    3,
+    4,
+    5,
+    6
+  ],
+  "finetuning_task": "dnaprom",
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "id2label": {
+    "0": "LABEL_0",
+    "1": "LABEL_1"
+  },
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "is_decoder": false,
+  "label2id": {
+    "LABEL_0": 0,
+    "LABEL_1": 1
+  },
+  "layer_norm_eps": 1e-12,
+  "length_penalty": 1.0,
+  "max_length": 20,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_beams": 1,
+  "num_hidden_layers": 12,
+  "num_labels": 2,
+  "num_return_sequences": 1,
+  "num_rnn_layer": 2,
+  "output_attentions": false,
+  "output_hidden_states": true,
+  "output_past": true,
+  "pad_token_id": 0,
+  "pruned_heads": {},
+  "repetition_penalty": 1.0,
+  "rnn": "lstm",
+  "rnn_dropout": 0.0,
+  "rnn_hidden": 768,
+  "split": 0,
+  "temperature": 1.0,
+  "top_k": 50,
+  "top_p": 1.0,
+  "torchscript": false,
+  "type_vocab_size": 2,
+  "use_bfloat16": false,
+  "vocab_size": 4101
+}
+
+INFO:transformers.modeling_utils:loading weights file /data3/linming/DNABERT/examples/output/no_val_mutant/pytorch_model.bin
+INFO:transformers.tokenization_utils:Model name '/data3/linming/DNABERT/examples/output/no_val_mutant/' not found in model shortcut name list (dna3, dna4, dna5, dna6). Assuming '/data3/linming/DNABERT/examples/output/no_val_mutant/' is a path, a model identifier, or url to a directory containing tokenizer files.
+INFO:transformers.tokenization_utils:Didn't find file /data3/linming/DNABERT/examples/output/no_val_mutant/added_tokens.json. We won't load it.
+INFO:transformers.tokenization_utils:loading file /data3/linming/DNABERT/examples/output/no_val_mutant/vocab.txt
+INFO:transformers.tokenization_utils:loading file None
+INFO:transformers.tokenization_utils:loading file /data3/linming/DNABERT/examples/output/no_val_mutant/special_tokens_map.json
+INFO:transformers.tokenization_utils:loading file /data3/linming/DNABERT/examples/output/no_val_mutant/tokenizer_config.json
+INFO:transformers.tokenization_utils:Model name '/data3/linming/DNABERT/examples/output/no_val_mutant/' not found in model shortcut name list (dna3, dna4, dna5, dna6). Assuming '/data3/linming/DNABERT/examples/output/no_val_mutant/' is a path, a model identifier, or url to a directory containing tokenizer files.
+INFO:transformers.tokenization_utils:Didn't find file /data3/linming/DNABERT/examples/output/no_val_mutant/added_tokens.json. We won't load it.
+INFO:transformers.tokenization_utils:loading file /data3/linming/DNABERT/examples/output/no_val_mutant/vocab.txt
+INFO:transformers.tokenization_utils:loading file None
+INFO:transformers.tokenization_utils:loading file /data3/linming/DNABERT/examples/output/no_val_mutant/special_tokens_map.json
+INFO:transformers.tokenization_utils:loading file /data3/linming/DNABERT/examples/output/no_val_mutant/tokenizer_config.json
+INFO:__main__:Evaluate the following checkpoints: ['/data3/linming/DNABERT/examples/output/no_val_mutant/']
+INFO:transformers.configuration_utils:loading configuration file /data3/linming/DNABERT/examples/output/no_val_mutant/config.json
+INFO:transformers.configuration_utils:Model config BertConfig {
+  "architectures": [
+    "BertForSequenceClassification_textCNN"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "bos_token_id": 0,
+  "do_sample": false,
+  "eos_token_ids": 0,
+  "filter_num": 128,
+  "filter_size": [
+    2,
+    3,
+    4,
+    5,
+    6
+  ],
+  "finetuning_task": "dnaprom",
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "id2label": {
+    "0": "LABEL_0",
+    "1": "LABEL_1"
+  },
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "is_decoder": false,
+  "label2id": {
+    "LABEL_0": 0,
+    "LABEL_1": 1
+  },
+  "layer_norm_eps": 1e-12,
+  "length_penalty": 1.0,
+  "max_length": 20,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_beams": 1,
+  "num_hidden_layers": 12,
+  "num_labels": 2,
+  "num_return_sequences": 1,
+  "num_rnn_layer": 2,
+  "output_attentions": false,
+  "output_hidden_states": true,
+  "output_past": true,
+  "pad_token_id": 0,
+  "pruned_heads": {},
+  "repetition_penalty": 1.0,
+  "rnn": "lstm",
+  "rnn_dropout": 0.0,
+  "rnn_hidden": 768,
+  "split": 0,
+  "temperature": 1.0,
+  "top_k": 50,
+  "top_p": 1.0,
+  "torchscript": false,
+  "type_vocab_size": 2,
+  "use_bfloat16": false,
+  "vocab_size": 4101
+}
+
+INFO:transformers.modeling_utils:loading weights file /data3/linming/DNABERT/examples/output/no_val_mutant/pytorch_model.bin
+INFO:__main__:Loading features from cached file /data3/linming/DNABERT/examples/data/no_val_mutant/cached_dev_6-new-12w-0_200_dnaprom
+INFO:__main__:***** Running evaluation  *****
+INFO:__main__:  Num examples = 151
+INFO:__main__:  Batch size = 128
+INFO:__main__:***** Eval results  *****
+INFO:__main__:  acc = 0.6622516556291391
+INFO:__main__:  auc = 0.7548500881834215
+INFO:__main__:  f1 = 0.6593231585932317
+INFO:__main__:  mcc = 0.3191737402190807
+INFO:__main__:  precision = 0.660181236673774
+INFO:__main__:  recall = 0.658994708994709

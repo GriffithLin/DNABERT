@@ -1,0 +1,499 @@
+2023-07-07 17:39:18,312 - WARNING - __main__ -   Process rank: -1, device: cuda, n_gpu: 1, distributed training: False, 16-bits training: False
+2023-07-07 17:39:20,886 - INFO - __main__ -   finish loading model
+2023-07-07 17:39:20,948 - INFO - __main__ -   Training/evaluation parameters Namespace(adam_epsilon=1e-08, attention_probs_dropout_prob=0.1, beta1=0.9, beta2=0.999, cache_dir='', config_name='', data_dir='/data3/linming/DNABERT/examples/data/fold5_100_15758/2/after/', device=device(type='cuda'), do_ensemble_pred=False, do_eval=True, do_lower_case=False, do_predict=False, do_train=True, do_visualize=False, early_stop=0, eval_all_checkpoints=False, eval_batch_size=48, evaluate_during_training=True, filter_num=128, filter_size=[2, 3, 4, 5, 6], fp16=False, fp16_opt_level='O1', gradient_accumulation_steps=1, hidden_dropout_prob=0.1, learning_rate=0.0001, local_rank=-1, logging_steps=100, max_grad_norm=1.0, max_seq_length=300, max_steps=-1, model_name='mutant_Bert_fold5_100_15758_fold2', model_name_or_path='/data3/linming/DNABERT/examples/embeding_model/6-new-12w-0/', model_num=5, model_type='dna', n_gpu=1, n_process=8, no_cuda=False, num_rnn_layer=2, num_train_epochs=15.0, output_dir='/data3/linming/DNABERT/examples/output/fold5_100_15758/_fold2', output_mode='classification', overwrite_cache=False, overwrite_output_dir=True, per_gpu_eval_batch_size=48, per_gpu_pred_batch_size=8, per_gpu_train_batch_size=48, predict_dir=None, predict_scan_size=1, result_dir=None, rnn='lstm', rnn_dropout=0.0, rnn_hidden=768, save_steps=4000, save_total_limit=None, seed=42, server_ip='', server_port='', should_continue=False, task_name='dnaprom', tokenizer_name='dna6', train_batch_size=48, visualize_data_dir=None, visualize_models=None, visualize_train=False, warmup_percent=0.1, warmup_steps=0, weight_decay=0.01)
+2023-07-07 17:39:20,948 - INFO - __main__ -   Creating features from dataset file at /data3/linming/DNABERT/examples/data/fold5_100_15758/2/after/
+2023-07-07 17:39:26,904 - INFO - __main__ -   Saving features into cached file /data3/linming/DNABERT/examples/data/fold5_100_15758/2/after/cached_train_6-new-12w-0_300_dnaprom
+2023-07-07 17:39:30,563 - INFO - __main__ -   ***** Running training *****
+2023-07-07 17:39:30,563 - INFO - __main__ -     Num examples = 12606
+2023-07-07 17:39:30,563 - INFO - __main__ -     Num Epochs = 15
+2023-07-07 17:39:30,563 - INFO - __main__ -     Instantaneous batch size per GPU = 48
+2023-07-07 17:39:30,563 - INFO - __main__ -     Total train batch size (w. parallel, distributed & accumulation) = 48
+2023-07-07 17:39:30,564 - INFO - __main__ -     Gradient Accumulation steps = 1
+2023-07-07 17:39:30,564 - INFO - __main__ -     Total optimization steps = 3945
+2023-07-07 17:39:30,564 - INFO - __main__ -     Continuing training from checkpoint, will skip to saved global_step
+2023-07-07 17:39:30,564 - INFO - __main__ -     Continuing training from epoch 0
+2023-07-07 17:39:30,564 - INFO - __main__ -     Continuing training from global step 0
+2023-07-07 17:39:30,564 - INFO - __main__ -     Will skip the first 0 steps in the first epoch
+2023-07-07 17:40:20,026 - INFO - __main__ -   Creating features from dataset file at /data3/linming/DNABERT/examples/data/fold5_100_15758/2/after/
+2023-07-07 17:40:24,449 - INFO - __main__ -   Saving features into cached file /data3/linming/DNABERT/examples/data/fold5_100_15758/2/after/cached_dev_6-new-12w-0_300_dnaprom
+2023-07-07 17:40:25,420 - INFO - __main__ -   ***** Running evaluation  *****
+2023-07-07 17:40:25,420 - INFO - __main__ -     Num examples = 3152
+2023-07-07 17:40:25,420 - INFO - __main__ -     Batch size = 48
+2023-07-07 17:40:35,941 - INFO - __main__ -   ***** Eval results  *****
+2023-07-07 17:40:35,941 - INFO - __main__ -     acc = 0.7985406091370558
+2023-07-07 17:40:35,941 - INFO - __main__ -     auc = 0.8834871671809672
+2023-07-07 17:40:35,941 - INFO - __main__ -     f1 = 0.7936551579664035
+2023-07-07 17:40:35,941 - INFO - __main__ -     mcc = 0.6317348963983325
+2023-07-07 17:40:35,941 - INFO - __main__ -     precision = 0.8328419991890081
+2023-07-07 17:40:35,941 - INFO - __main__ -     recall = 0.7997585793708568
+2023-07-07 17:40:35,942 - INFO - __main__ -   {"eval_acc": 0.7985406091370558, "eval_f1": 0.7936551579664035, "eval_mcc": 0.6317348963983325, "eval_auc": 0.8834871671809672, "eval_precision": 0.8328419991890081, "eval_recall": 0.7997585793708568, "learning_rate": 2.5380710659898476e-05, "loss": 0.5718600091338157, "step": 100}
+2023-07-07 17:41:25,919 - INFO - __main__ -   Loading features from cached file /data3/linming/DNABERT/examples/data/fold5_100_15758/2/after/cached_dev_6-new-12w-0_300_dnaprom
+2023-07-07 17:41:26,490 - INFO - __main__ -   ***** Running evaluation  *****
+2023-07-07 17:41:26,490 - INFO - __main__ -     Num examples = 3152
+2023-07-07 17:41:26,490 - INFO - __main__ -     Batch size = 48
+2023-07-07 17:41:37,479 - INFO - __main__ -   ***** Eval results  *****
+2023-07-07 17:41:37,479 - INFO - __main__ -     acc = 0.8442258883248731
+2023-07-07 17:41:37,479 - INFO - __main__ -     auc = 0.904067510806754
+2023-07-07 17:41:37,479 - INFO - __main__ -     f1 = 0.8436637919757222
+2023-07-07 17:41:37,479 - INFO - __main__ -     mcc = 0.6951194353311858
+2023-07-07 17:41:37,479 - INFO - __main__ -     precision = 0.8504112139970328
+2023-07-07 17:41:37,479 - INFO - __main__ -     recall = 0.8447314255896203
+2023-07-07 17:41:37,480 - INFO - __main__ -   {"eval_acc": 0.8442258883248731, "eval_f1": 0.8436637919757222, "eval_mcc": 0.6951194353311858, "eval_auc": 0.904067510806754, "eval_precision": 0.8504112139970328, "eval_recall": 0.8447314255896203, "learning_rate": 5.076142131979695e-05, "loss": 0.41986877754330637, "step": 200}
+2023-07-07 17:42:27,273 - INFO - __main__ -   Loading features from cached file /data3/linming/DNABERT/examples/data/fold5_100_15758/2/after/cached_dev_6-new-12w-0_300_dnaprom
+2023-07-07 17:42:27,836 - INFO - __main__ -   ***** Running evaluation  *****
+2023-07-07 17:42:27,836 - INFO - __main__ -     Num examples = 3152
+2023-07-07 17:42:27,837 - INFO - __main__ -     Batch size = 48
+2023-07-07 17:42:38,850 - INFO - __main__ -   ***** Eval results  *****
+2023-07-07 17:42:38,850 - INFO - __main__ -     acc = 0.8413705583756346
+2023-07-07 17:42:38,851 - INFO - __main__ -     auc = 0.908658368067411
+2023-07-07 17:42:38,851 - INFO - __main__ -     f1 = 0.8413695365091636
+2023-07-07 17:42:38,851 - INFO - __main__ -     mcc = 0.6829125309452417
+2023-07-07 17:42:38,851 - INFO - __main__ -     precision = 0.8414738646101114
+2023-07-07 17:42:38,851 - INFO - __main__ -     recall = 0.8414386672421679
+2023-07-07 17:42:38,851 - INFO - __main__ -   {"eval_acc": 0.8413705583756346, "eval_f1": 0.8413695365091636, "eval_mcc": 0.6829125309452417, "eval_auc": 0.908658368067411, "eval_precision": 0.8414738646101114, "eval_recall": 0.8414386672421679, "learning_rate": 7.614213197969543e-05, "loss": 0.40440956100821496, "step": 300}
+2023-07-07 17:43:27,403 - INFO - __main__ -   Loading features from cached file /data3/linming/DNABERT/examples/data/fold5_100_15758/2/after/cached_dev_6-new-12w-0_300_dnaprom
+2023-07-07 17:43:27,952 - INFO - __main__ -   ***** Running evaluation  *****
+2023-07-07 17:43:27,952 - INFO - __main__ -     Num examples = 3152
+2023-07-07 17:43:27,952 - INFO - __main__ -     Batch size = 48
+2023-07-07 17:43:38,957 - INFO - __main__ -   ***** Eval results  *****
+2023-07-07 17:43:38,957 - INFO - __main__ -     acc = 0.8448604060913706
+2023-07-07 17:43:38,957 - INFO - __main__ -     auc = 0.915125107101213
+2023-07-07 17:43:38,957 - INFO - __main__ -     f1 = 0.8448197800695354
+2023-07-07 17:43:38,957 - INFO - __main__ -     mcc = 0.6905971883263947
+2023-07-07 17:43:38,957 - INFO - __main__ -     precision = 0.845564795970009
+2023-07-07 17:43:38,957 - INFO - __main__ -     recall = 0.8450325974218402
+2023-07-07 17:43:38,958 - INFO - __main__ -   {"eval_acc": 0.8448604060913706, "eval_f1": 0.8448197800695354, "eval_mcc": 0.6905971883263947, "eval_auc": 0.915125107101213, "eval_precision": 0.845564795970009, "eval_recall": 0.8450325974218402, "learning_rate": 9.983103351168686e-05, "loss": 0.3762154471874237, "step": 400}
+2023-07-07 17:44:29,140 - INFO - __main__ -   Loading features from cached file /data3/linming/DNABERT/examples/data/fold5_100_15758/2/after/cached_dev_6-new-12w-0_300_dnaprom
+2023-07-07 17:44:29,722 - INFO - __main__ -   ***** Running evaluation  *****
+2023-07-07 17:44:29,722 - INFO - __main__ -     Num examples = 3152
+2023-07-07 17:44:29,722 - INFO - __main__ -     Batch size = 48
+2023-07-07 17:44:40,764 - INFO - __main__ -   ***** Eval results  *****
+2023-07-07 17:44:40,764 - INFO - __main__ -     acc = 0.8527918781725888
+2023-07-07 17:44:40,764 - INFO - __main__ -     auc = 0.9168316803777693
+2023-07-07 17:44:40,764 - INFO - __main__ -     f1 = 0.8523522238105623
+2023-07-07 17:44:40,764 - INFO - __main__ -     mcc = 0.7113580510760845
+2023-07-07 17:44:40,764 - INFO - __main__ -     precision = 0.858117816091954
+2023-07-07 17:44:40,764 - INFO - __main__ -     recall = 0.8532568432038241
+2023-07-07 17:44:40,767 - INFO - __main__ -   {"eval_acc": 0.8527918781725888, "eval_f1": 0.8523522238105623, "eval_mcc": 0.7113580510760845, "eval_auc": 0.9168316803777693, "eval_precision": 0.858117816091954, "eval_recall": 0.8532568432038241, "learning_rate": 9.701492537313434e-05, "loss": 0.37654757976531983, "step": 500}
+2023-07-07 17:45:30,536 - INFO - __main__ -   Loading features from cached file /data3/linming/DNABERT/examples/data/fold5_100_15758/2/after/cached_dev_6-new-12w-0_300_dnaprom
+2023-07-07 17:45:31,100 - INFO - __main__ -   ***** Running evaluation  *****
+2023-07-07 17:45:31,100 - INFO - __main__ -     Num examples = 3152
+2023-07-07 17:45:31,100 - INFO - __main__ -     Batch size = 48
+2023-07-07 17:45:41,604 - INFO - __main__ -   ***** Eval results  *****
+2023-07-07 17:45:41,604 - INFO - __main__ -     acc = 0.8512055837563451
+2023-07-07 17:45:41,605 - INFO - __main__ -     auc = 0.9053680255367945
+2023-07-07 17:45:41,605 - INFO - __main__ -     f1 = 0.8510208275238912
+2023-07-07 17:45:41,605 - INFO - __main__ -     mcc = 0.705176745369699
+2023-07-07 17:45:41,605 - INFO - __main__ -     precision = 0.8536568816845826
+2023-07-07 17:45:41,605 - INFO - __main__ -     recall = 0.8515230919878629
+2023-07-07 17:45:41,605 - INFO - __main__ -   {"eval_acc": 0.8512055837563451, "eval_f1": 0.8510208275238912, "eval_mcc": 0.705176745369699, "eval_auc": 0.9053680255367945, "eval_precision": 0.8536568816845826, "eval_recall": 0.8515230919878629, "learning_rate": 9.419881723458181e-05, "loss": 0.3325857910513878, "step": 600}
+2023-07-07 17:46:30,627 - INFO - __main__ -   Loading features from cached file /data3/linming/DNABERT/examples/data/fold5_100_15758/2/after/cached_dev_6-new-12w-0_300_dnaprom
+2023-07-07 17:46:31,180 - INFO - __main__ -   ***** Running evaluation  *****
+2023-07-07 17:46:31,180 - INFO - __main__ -     Num examples = 3152
+2023-07-07 17:46:31,180 - INFO - __main__ -     Batch size = 48
+2023-07-07 17:46:42,251 - INFO - __main__ -   ***** Eval results  *****
+2023-07-07 17:46:42,251 - INFO - __main__ -     acc = 0.8496192893401016
+2023-07-07 17:46:42,251 - INFO - __main__ -     auc = 0.9213794555715178
+2023-07-07 17:46:42,251 - INFO - __main__ -     f1 = 0.8494965852738651
+2023-07-07 17:46:42,251 - INFO - __main__ -     mcc = 0.7012218359372571
+2023-07-07 17:46:42,251 - INFO - __main__ -     precision = 0.8513373645371582
+2023-07-07 17:46:42,251 - INFO - __main__ -     recall = 0.8498859734453413
+2023-07-07 17:46:42,252 - INFO - __main__ -   {"eval_acc": 0.8496192893401016, "eval_f1": 0.8494965852738651, "eval_mcc": 0.7012218359372571, "eval_auc": 0.9213794555715178, "eval_precision": 0.8513373645371582, "eval_recall": 0.8498859734453413, "learning_rate": 9.138270909602929e-05, "loss": 0.31788177773356435, "step": 700}
+2023-07-07 17:47:32,209 - INFO - __main__ -   Loading features from cached file /data3/linming/DNABERT/examples/data/fold5_100_15758/2/after/cached_dev_6-new-12w-0_300_dnaprom
+2023-07-07 17:47:32,845 - INFO - __main__ -   ***** Running evaluation  *****
+2023-07-07 17:47:32,845 - INFO - __main__ -     Num examples = 3152
+2023-07-07 17:47:32,845 - INFO - __main__ -     Batch size = 48
+2023-07-07 17:47:43,957 - INFO - __main__ -   ***** Eval results  *****
+2023-07-07 17:47:43,958 - INFO - __main__ -     acc = 0.8626269035532995
+2023-07-07 17:47:43,958 - INFO - __main__ -     auc = 0.9242383734788406
+2023-07-07 17:47:43,958 - INFO - __main__ -     f1 = 0.8622021410717312
+2023-07-07 17:47:43,958 - INFO - __main__ -     mcc = 0.7313448604439717
+2023-07-07 17:47:43,958 - INFO - __main__ -     precision = 0.8682634033633521
+2023-07-07 17:47:43,958 - INFO - __main__ -     recall = 0.8630996862659202
+2023-07-07 17:47:43,958 - INFO - __main__ -   {"eval_acc": 0.8626269035532995, "eval_f1": 0.8622021410717312, "eval_mcc": 0.7313448604439717, "eval_auc": 0.9242383734788406, "eval_precision": 0.8682634033633521, "eval_recall": 0.8630996862659202, "learning_rate": 8.856660095747678e-05, "loss": 0.3132592657953501, "step": 800}
+2023-07-07 17:48:32,787 - INFO - __main__ -   Loading features from cached file /data3/linming/DNABERT/examples/data/fold5_100_15758/2/after/cached_dev_6-new-12w-0_300_dnaprom
+2023-07-07 17:48:33,336 - INFO - __main__ -   ***** Running evaluation  *****
+2023-07-07 17:48:33,336 - INFO - __main__ -     Num examples = 3152
+2023-07-07 17:48:33,336 - INFO - __main__ -     Batch size = 48
+2023-07-07 17:48:44,184 - INFO - __main__ -   ***** Eval results  *****
+2023-07-07 17:48:44,184 - INFO - __main__ -     acc = 0.8375634517766497
+2023-07-07 17:48:44,184 - INFO - __main__ -     auc = 0.907844640429822
+2023-07-07 17:48:44,184 - INFO - __main__ -     f1 = 0.837442438879145
+2023-07-07 17:48:44,184 - INFO - __main__ -     mcc = 0.6769299693008387
+2023-07-07 17:48:44,184 - INFO - __main__ -     precision = 0.8391114279847965
+2023-07-07 17:48:44,184 - INFO - __main__ -     recall = 0.8378197736218571
+2023-07-07 17:48:44,185 - INFO - __main__ -   {"eval_acc": 0.8375634517766497, "eval_f1": 0.837442438879145, "eval_mcc": 0.6769299693008387, "eval_auc": 0.907844640429822, "eval_precision": 0.8391114279847965, "eval_recall": 0.8378197736218571, "learning_rate": 8.575049281892426e-05, "loss": 0.23151900067925454, "step": 900}
+2023-07-07 17:49:34,244 - INFO - __main__ -   Loading features from cached file /data3/linming/DNABERT/examples/data/fold5_100_15758/2/after/cached_dev_6-new-12w-0_300_dnaprom
+2023-07-07 17:49:34,802 - INFO - __main__ -   ***** Running evaluation  *****
+2023-07-07 17:49:34,803 - INFO - __main__ -     Num examples = 3152
+2023-07-07 17:49:34,803 - INFO - __main__ -     Batch size = 48
+2023-07-07 17:49:45,843 - INFO - __main__ -   ***** Eval results  *****
+2023-07-07 17:49:45,843 - INFO - __main__ -     acc = 0.863261421319797
+2023-07-07 17:49:45,843 - INFO - __main__ -     auc = 0.9250996121808707
+2023-07-07 17:49:45,843 - INFO - __main__ -     f1 = 0.8630791607113935
+2023-07-07 17:49:45,843 - INFO - __main__ -     mcc = 0.7295300516181847
+2023-07-07 17:49:45,844 - INFO - __main__ -     precision = 0.8659445617626833
+2023-07-07 17:49:45,844 - INFO - __main__ -     recall = 0.8635892918113472
+2023-07-07 17:49:45,844 - INFO - __main__ -   {"eval_acc": 0.863261421319797, "eval_f1": 0.8630791607113935, "eval_mcc": 0.7295300516181847, "eval_auc": 0.9250996121808707, "eval_precision": 0.8659445617626833, "eval_recall": 0.8635892918113472, "learning_rate": 8.293438468037173e-05, "loss": 0.2343426653370261, "step": 1000}
+2023-07-07 17:50:35,616 - INFO - __main__ -   Loading features from cached file /data3/linming/DNABERT/examples/data/fold5_100_15758/2/after/cached_dev_6-new-12w-0_300_dnaprom
+2023-07-07 17:50:36,250 - INFO - __main__ -   ***** Running evaluation  *****
+2023-07-07 17:50:36,250 - INFO - __main__ -     Num examples = 3152
+2023-07-07 17:50:36,250 - INFO - __main__ -     Batch size = 48
+2023-07-07 17:50:47,068 - INFO - __main__ -   ***** Eval results  *****
+2023-07-07 17:50:47,068 - INFO - __main__ -     acc = 0.8673857868020305
+2023-07-07 17:50:47,068 - INFO - __main__ -     auc = 0.9269561674193278
+2023-07-07 17:50:47,068 - INFO - __main__ -     f1 = 0.8673684854790832
+2023-07-07 17:50:47,068 - INFO - __main__ -     mcc = 0.7353659350345302
+2023-07-07 17:50:47,068 - INFO - __main__ -     precision = 0.8678429577283161
+2023-07-07 17:50:47,069 - INFO - __main__ -     recall = 0.8675230468926154
+2023-07-07 17:50:47,076 - INFO - __main__ -   {"eval_acc": 0.8673857868020305, "eval_f1": 0.8673684854790832, "eval_mcc": 0.7353659350345302, "eval_auc": 0.9269561674193278, "eval_precision": 0.8678429577283161, "eval_recall": 0.8675230468926154, "learning_rate": 8.011827654181921e-05, "loss": 0.20794203812256457, "step": 1100}
+2023-07-07 17:51:35,744 - INFO - __main__ -   Loading features from cached file /data3/linming/DNABERT/examples/data/fold5_100_15758/2/after/cached_dev_6-new-12w-0_300_dnaprom
+2023-07-07 17:51:36,280 - INFO - __main__ -   ***** Running evaluation  *****
+2023-07-07 17:51:36,280 - INFO - __main__ -     Num examples = 3152
+2023-07-07 17:51:36,280 - INFO - __main__ -     Batch size = 48
+2023-07-07 17:51:47,320 - INFO - __main__ -   ***** Eval results  *****
+2023-07-07 17:51:47,320 - INFO - __main__ -     acc = 0.8610406091370558
+2023-07-07 17:51:47,320 - INFO - __main__ -     auc = 0.9245645087516989
+2023-07-07 17:51:47,320 - INFO - __main__ -     f1 = 0.8610360772961254
+2023-07-07 17:51:47,320 - INFO - __main__ -     mcc = 0.7220783949435968
+2023-07-07 17:51:47,320 - INFO - __main__ -     precision = 0.8610313478866548
+2023-07-07 17:51:47,320 - INFO - __main__ -     recall = 0.8610470472276086
+2023-07-07 17:51:47,321 - INFO - __main__ -   {"eval_acc": 0.8610406091370558, "eval_f1": 0.8610360772961254, "eval_mcc": 0.7220783949435968, "eval_auc": 0.9245645087516989, "eval_precision": 0.8610313478866548, "eval_recall": 0.8610470472276086, "learning_rate": 7.730216840326669e-05, "loss": 0.16050504464656115, "step": 1200}
+2023-07-07 17:52:37,336 - INFO - __main__ -   Loading features from cached file /data3/linming/DNABERT/examples/data/fold5_100_15758/2/after/cached_dev_6-new-12w-0_300_dnaprom
+2023-07-07 17:52:37,871 - INFO - __main__ -   ***** Running evaluation  *****
+2023-07-07 17:52:37,871 - INFO - __main__ -     Num examples = 3152
+2023-07-07 17:52:37,871 - INFO - __main__ -     Batch size = 48
+2023-07-07 17:52:48,941 - INFO - __main__ -   ***** Eval results  *****
+2023-07-07 17:52:48,941 - INFO - __main__ -     acc = 0.8670685279187818
+2023-07-07 17:52:48,941 - INFO - __main__ -     auc = 0.9263810016942928
+2023-07-07 17:52:48,941 - INFO - __main__ -     f1 = 0.8668787835995027
+2023-07-07 17:52:48,941 - INFO - __main__ -     mcc = 0.7373429177398371
+2023-07-07 17:52:48,941 - INFO - __main__ -     precision = 0.8699409920072649
+2023-07-07 17:52:48,941 - INFO - __main__ -     recall = 0.8674062824122092
+2023-07-07 17:52:48,942 - INFO - __main__ -   {"eval_acc": 0.8670685279187818, "eval_f1": 0.8668787835995027, "eval_mcc": 0.7373429177398371, "eval_auc": 0.9263810016942928, "eval_precision": 0.8699409920072649, "eval_recall": 0.8674062824122092, "learning_rate": 7.448606026471416e-05, "loss": 0.16766221430152656, "step": 1300}
+2023-07-07 17:53:37,660 - INFO - __main__ -   Loading features from cached file /data3/linming/DNABERT/examples/data/fold5_100_15758/2/after/cached_dev_6-new-12w-0_300_dnaprom
+2023-07-07 17:53:38,315 - INFO - __main__ -   ***** Running evaluation  *****
+2023-07-07 17:53:38,315 - INFO - __main__ -     Num examples = 3152
+2023-07-07 17:53:38,315 - INFO - __main__ -     Batch size = 48
+2023-07-07 17:53:48,966 - INFO - __main__ -   ***** Eval results  *****
+2023-07-07 17:53:48,966 - INFO - __main__ -     acc = 0.8626269035532995
+2023-07-07 17:53:48,966 - INFO - __main__ -     auc = 0.9215729222364667
+2023-07-07 17:53:48,966 - INFO - __main__ -     f1 = 0.8625531797044748
+2023-07-07 17:53:48,966 - INFO - __main__ -     mcc = 0.7267432820894876
+2023-07-07 17:53:48,966 - INFO - __main__ -     precision = 0.8638907496756578
+2023-07-07 17:53:48,966 - INFO - __main__ -     recall = 0.8628532729486494
+2023-07-07 17:53:48,967 - INFO - __main__ -   {"eval_acc": 0.8626269035532995, "eval_f1": 0.8625531797044748, "eval_mcc": 0.7267432820894876, "eval_auc": 0.9215729222364667, "eval_precision": 0.8638907496756578, "eval_recall": 0.8628532729486494, "learning_rate": 7.166995212616164e-05, "loss": 0.11303057543933391, "step": 1400}
+2023-07-07 17:54:38,795 - INFO - __main__ -   Loading features from cached file /data3/linming/DNABERT/examples/data/fold5_100_15758/2/after/cached_dev_6-new-12w-0_300_dnaprom
+2023-07-07 17:54:39,341 - INFO - __main__ -   ***** Running evaluation  *****
+2023-07-07 17:54:39,341 - INFO - __main__ -     Num examples = 3152
+2023-07-07 17:54:39,341 - INFO - __main__ -     Batch size = 48
+2023-07-07 17:54:50,390 - INFO - __main__ -   ***** Eval results  *****
+2023-07-07 17:54:50,391 - INFO - __main__ -     acc = 0.8657994923857868
+2023-07-07 17:54:50,391 - INFO - __main__ -     auc = 0.9172751840852429
+2023-07-07 17:54:50,391 - INFO - __main__ -     f1 = 0.8657829434000556
+2023-07-07 17:54:50,391 - INFO - __main__ -     mcc = 0.7315869806605435
+2023-07-07 17:54:50,391 - INFO - __main__ -     precision = 0.8658218453500599
+2023-07-07 17:54:50,391 - INFO - __main__ -     recall = 0.8657651375082943
+2023-07-07 17:54:50,395 - INFO - __main__ -   {"eval_acc": 0.8657994923857868, "eval_f1": 0.8657829434000556, "eval_mcc": 0.7315869806605435, "eval_auc": 0.9172751840852429, "eval_precision": 0.8658218453500599, "eval_recall": 0.8657651375082943, "learning_rate": 6.885384398760913e-05, "loss": 0.10546602958347648, "step": 1500}
+2023-07-07 17:55:40,249 - INFO - __main__ -   Loading features from cached file /data3/linming/DNABERT/examples/data/fold5_100_15758/2/after/cached_dev_6-new-12w-0_300_dnaprom
+2023-07-07 17:55:40,843 - INFO - __main__ -   ***** Running evaluation  *****
+2023-07-07 17:55:40,843 - INFO - __main__ -     Num examples = 3152
+2023-07-07 17:55:40,843 - INFO - __main__ -     Batch size = 48
+2023-07-07 17:55:51,831 - INFO - __main__ -   ***** Eval results  *****
+2023-07-07 17:55:51,831 - INFO - __main__ -     acc = 0.8648477157360406
+2023-07-07 17:55:51,831 - INFO - __main__ -     auc = 0.9235079915220935
+2023-07-07 17:55:51,832 - INFO - __main__ -     f1 = 0.8643013757106546
+2023-07-07 17:55:51,832 - INFO - __main__ -     mcc = 0.7374433499733033
+2023-07-07 17:55:51,832 - INFO - __main__ -     precision = 0.8720928706856397
+2023-07-07 17:55:51,832 - INFO - __main__ -     recall = 0.8653810226313721
+2023-07-07 17:55:51,832 - INFO - __main__ -   {"eval_acc": 0.8648477157360406, "eval_f1": 0.8643013757106546, "eval_mcc": 0.7374433499733033, "eval_auc": 0.9235079915220935, "eval_precision": 0.8720928706856397, "eval_recall": 0.8653810226313721, "learning_rate": 6.60377358490566e-05, "loss": 0.09274990788195282, "step": 1600}
+2023-07-07 17:56:40,363 - INFO - __main__ -   Loading features from cached file /data3/linming/DNABERT/examples/data/fold5_100_15758/2/after/cached_dev_6-new-12w-0_300_dnaprom
+2023-07-07 17:56:40,911 - INFO - __main__ -   ***** Running evaluation  *****
+2023-07-07 17:56:40,911 - INFO - __main__ -     Num examples = 3152
+2023-07-07 17:56:40,911 - INFO - __main__ -     Batch size = 48
+2023-07-07 17:56:51,957 - INFO - __main__ -   ***** Eval results  *****
+2023-07-07 17:56:51,957 - INFO - __main__ -     acc = 0.8521573604060914
+2023-07-07 17:56:51,957 - INFO - __main__ -     auc = 0.9120970820153711
+2023-07-07 17:56:51,957 - INFO - __main__ -     f1 = 0.8516627987533806
+2023-07-07 17:56:51,957 - INFO - __main__ -     mcc = 0.707642722178442
+2023-07-07 17:56:51,957 - INFO - __main__ -     precision = 0.8558876293548024
+2023-07-07 17:56:51,957 - INFO - __main__ -     recall = 0.8517670894882978
+2023-07-07 17:56:51,958 - INFO - __main__ -   {"eval_acc": 0.8521573604060914, "eval_f1": 0.8516627987533806, "eval_mcc": 0.707642722178442, "eval_auc": 0.9120970820153711, "eval_precision": 0.8558876293548024, "eval_recall": 0.8517670894882978, "learning_rate": 6.322162771050408e-05, "loss": 0.09430957791395485, "step": 1700}
+2023-07-07 17:57:42,311 - INFO - __main__ -   Loading features from cached file /data3/linming/DNABERT/examples/data/fold5_100_15758/2/after/cached_dev_6-new-12w-0_300_dnaprom
+2023-07-07 17:57:42,922 - INFO - __main__ -   ***** Running evaluation  *****
+2023-07-07 17:57:42,922 - INFO - __main__ -     Num examples = 3152
+2023-07-07 17:57:42,922 - INFO - __main__ -     Batch size = 48
+2023-07-07 17:57:53,941 - INFO - __main__ -   ***** Eval results  *****
+2023-07-07 17:57:53,941 - INFO - __main__ -     acc = 0.8711928934010152
+2023-07-07 17:57:53,941 - INFO - __main__ -     auc = 0.922524754069846
+2023-07-07 17:57:53,941 - INFO - __main__ -     f1 = 0.8711256485450034
+2023-07-07 17:57:53,941 - INFO - __main__ -     mcc = 0.7438705120734745
+2023-07-07 17:57:53,941 - INFO - __main__ -     precision = 0.8724538906295423
+2023-07-07 17:57:53,941 - INFO - __main__ -     recall = 0.871417343632229
+2023-07-07 17:57:53,942 - INFO - __main__ -   {"eval_acc": 0.8711928934010152, "eval_f1": 0.8711256485450034, "eval_mcc": 0.7438705120734745, "eval_auc": 0.922524754069846, "eval_precision": 0.8724538906295423, "eval_recall": 0.871417343632229, "learning_rate": 6.0405519571951566e-05, "loss": 0.08085975141730159, "step": 1800}
+2023-07-07 17:58:43,206 - INFO - __main__ -   Loading features from cached file /data3/linming/DNABERT/examples/data/fold5_100_15758/2/after/cached_dev_6-new-12w-0_300_dnaprom
+2023-07-07 17:58:43,753 - INFO - __main__ -   ***** Running evaluation  *****
+2023-07-07 17:58:43,754 - INFO - __main__ -     Num examples = 3152
+2023-07-07 17:58:43,754 - INFO - __main__ -     Batch size = 48
+2023-07-07 17:58:54,273 - INFO - __main__ -   ***** Eval results  *****
+2023-07-07 17:58:54,273 - INFO - __main__ -     acc = 0.8692893401015228
+2023-07-07 17:58:54,273 - INFO - __main__ -     auc = 0.9188168778627429
+2023-07-07 17:58:54,273 - INFO - __main__ -     f1 = 0.8692092472368875
+2023-07-07 17:58:54,273 - INFO - __main__ -     mcc = 0.740242937932894
+2023-07-07 17:58:54,273 - INFO - __main__ -     precision = 0.8707157156267622
+2023-07-07 17:58:54,273 - INFO - __main__ -     recall = 0.8695281748664858
+2023-07-07 17:58:54,274 - INFO - __main__ -   {"eval_acc": 0.8692893401015228, "eval_f1": 0.8692092472368875, "eval_mcc": 0.740242937932894, "eval_auc": 0.9188168778627429, "eval_precision": 0.8707157156267622, "eval_recall": 0.8695281748664858, "learning_rate": 5.758941143339904e-05, "loss": 0.06480312317842618, "step": 1900}
+2023-07-07 17:59:44,155 - INFO - __main__ -   Loading features from cached file /data3/linming/DNABERT/examples/data/fold5_100_15758/2/after/cached_dev_6-new-12w-0_300_dnaprom
+2023-07-07 17:59:44,698 - INFO - __main__ -   ***** Running evaluation  *****
+2023-07-07 17:59:44,698 - INFO - __main__ -     Num examples = 3152
+2023-07-07 17:59:44,698 - INFO - __main__ -     Batch size = 48
+2023-07-07 17:59:55,823 - INFO - __main__ -   ***** Eval results  *****
+2023-07-07 17:59:55,823 - INFO - __main__ -     acc = 0.8661167512690355
+2023-07-07 17:59:55,823 - INFO - __main__ -     auc = 0.9231538730375516
+2023-07-07 17:59:55,823 - INFO - __main__ -     f1 = 0.8661158888137341
+2023-07-07 17:59:55,823 - INFO - __main__ -     mcc = 0.7324103373362407
+2023-07-07 17:59:55,823 - INFO - __main__ -     precision = 0.8662240433989858
+2023-07-07 17:59:55,823 - INFO - __main__ -     recall = 0.866186294910035
+2023-07-07 17:59:55,824 - INFO - __main__ -   {"eval_acc": 0.8661167512690355, "eval_f1": 0.8661158888137341, "eval_mcc": 0.7324103373362407, "eval_auc": 0.9231538730375516, "eval_precision": 0.8662240433989858, "eval_recall": 0.866186294910035, "learning_rate": 5.4773303294846525e-05, "loss": 0.0675284579419531, "step": 2000}
+2023-07-07 18:00:45,601 - INFO - __main__ -   Loading features from cached file /data3/linming/DNABERT/examples/data/fold5_100_15758/2/after/cached_dev_6-new-12w-0_300_dnaprom
+2023-07-07 18:00:46,238 - INFO - __main__ -   ***** Running evaluation  *****
+2023-07-07 18:00:46,238 - INFO - __main__ -     Num examples = 3152
+2023-07-07 18:00:46,238 - INFO - __main__ -     Batch size = 48
+2023-07-07 18:00:57,325 - INFO - __main__ -   ***** Eval results  *****
+2023-07-07 18:00:57,325 - INFO - __main__ -     acc = 0.8616751269035533
+2023-07-07 18:00:57,325 - INFO - __main__ -     auc = 0.9157501997075251
+2023-07-07 18:00:57,325 - INFO - __main__ -     f1 = 0.8611271334593114
+2023-07-07 18:00:57,325 - INFO - __main__ -     mcc = 0.7309035759611039
+2023-07-07 18:00:57,325 - INFO - __main__ -     precision = 0.8687292902828081
+2023-07-07 18:00:57,325 - INFO - __main__ -     recall = 0.8622034182197684
+2023-07-07 18:00:57,326 - INFO - __main__ -   {"eval_acc": 0.8616751269035533, "eval_f1": 0.8611271334593114, "eval_mcc": 0.7309035759611039, "eval_auc": 0.9157501997075251, "eval_precision": 0.8687292902828081, "eval_recall": 0.8622034182197684, "learning_rate": 5.1957195156294e-05, "loss": 0.0670228106842842, "step": 2100}
+2023-07-07 18:01:45,788 - INFO - __main__ -   Loading features from cached file /data3/linming/DNABERT/examples/data/fold5_100_15758/2/after/cached_dev_6-new-12w-0_300_dnaprom
+2023-07-07 18:01:46,340 - INFO - __main__ -   ***** Running evaluation  *****
+2023-07-07 18:01:46,340 - INFO - __main__ -     Num examples = 3152
+2023-07-07 18:01:46,340 - INFO - __main__ -     Batch size = 48
+2023-07-07 18:01:57,371 - INFO - __main__ -   ***** Eval results  *****
+2023-07-07 18:01:57,371 - INFO - __main__ -     acc = 0.8550126903553299
+2023-07-07 18:01:57,371 - INFO - __main__ -     auc = 0.9206196811765994
+2023-07-07 18:01:57,371 - INFO - __main__ -     f1 = 0.8543093793626733
+2023-07-07 18:01:57,371 - INFO - __main__ -     mcc = 0.7189266140328803
+2023-07-07 18:01:57,371 - INFO - __main__ -     precision = 0.8633774478844148
+2023-07-07 18:01:57,371 - INFO - __main__ -     recall = 0.8555913275396677
+2023-07-07 18:01:57,372 - INFO - __main__ -   {"eval_acc": 0.8550126903553299, "eval_f1": 0.8543093793626733, "eval_mcc": 0.7189266140328803, "eval_auc": 0.9206196811765994, "eval_precision": 0.8633774478844148, "eval_recall": 0.8555913275396677, "learning_rate": 4.9141087017741485e-05, "loss": 0.06252583668800071, "step": 2200}
+2023-07-07 18:02:47,214 - INFO - __main__ -   Loading features from cached file /data3/linming/DNABERT/examples/data/fold5_100_15758/2/after/cached_dev_6-new-12w-0_300_dnaprom
+2023-07-07 18:02:47,771 - INFO - __main__ -   ***** Running evaluation  *****
+2023-07-07 18:02:47,771 - INFO - __main__ -     Num examples = 3152
+2023-07-07 18:02:47,771 - INFO - __main__ -     Batch size = 48
+2023-07-07 18:02:58,815 - INFO - __main__ -   ***** Eval results  *****
+2023-07-07 18:02:58,815 - INFO - __main__ -     acc = 0.8569162436548223
+2023-07-07 18:02:58,815 - INFO - __main__ -     auc = 0.9168906665721814
+2023-07-07 18:02:58,815 - INFO - __main__ -     f1 = 0.8567050751562704
+2023-07-07 18:02:58,815 - INFO - __main__ -     mcc = 0.7150387715746971
+2023-07-07 18:02:58,815 - INFO - __main__ -     precision = 0.858367163653796
+2023-07-07 18:02:58,815 - INFO - __main__ -     recall = 0.8566736134821906
+2023-07-07 18:02:58,816 - INFO - __main__ -   {"eval_acc": 0.8569162436548223, "eval_f1": 0.8567050751562704, "eval_mcc": 0.7150387715746971, "eval_auc": 0.9168906665721814, "eval_precision": 0.858367163653796, "eval_recall": 0.8566736134821906, "learning_rate": 4.632497887918896e-05, "loss": 0.0538157053256873, "step": 2300}
+2023-07-07 18:03:47,698 - INFO - __main__ -   Loading features from cached file /data3/linming/DNABERT/examples/data/fold5_100_15758/2/after/cached_dev_6-new-12w-0_300_dnaprom
+2023-07-07 18:03:48,348 - INFO - __main__ -   ***** Running evaluation  *****
+2023-07-07 18:03:48,348 - INFO - __main__ -     Num examples = 3152
+2023-07-07 18:03:48,348 - INFO - __main__ -     Batch size = 48
+2023-07-07 18:03:58,831 - INFO - __main__ -   ***** Eval results  *****
+2023-07-07 18:03:58,831 - INFO - __main__ -     acc = 0.8604060913705583
+2023-07-07 18:03:58,831 - INFO - __main__ -     auc = 0.9123048422632659
+2023-07-07 18:03:58,831 - INFO - __main__ -     f1 = 0.8601457272486721
+2023-07-07 18:03:58,831 - INFO - __main__ -     mcc = 0.7247509445140855
+2023-07-07 18:03:58,831 - INFO - __main__ -     precision = 0.8639734316000183
+2023-07-07 18:03:58,831 - INFO - __main__ -     recall = 0.8607845284647645
+2023-07-07 18:03:58,832 - INFO - __main__ -   {"eval_acc": 0.8604060913705583, "eval_f1": 0.8601457272486721, "eval_mcc": 0.7247509445140855, "eval_auc": 0.9123048422632659, "eval_precision": 0.8639734316000183, "eval_recall": 0.8607845284647645, "learning_rate": 4.3508870740636445e-05, "loss": 0.05636427939403802, "step": 2400}
+2023-07-07 18:04:48,424 - INFO - __main__ -   Loading features from cached file /data3/linming/DNABERT/examples/data/fold5_100_15758/2/after/cached_dev_6-new-12w-0_300_dnaprom
+2023-07-07 18:04:48,975 - INFO - __main__ -   ***** Running evaluation  *****
+2023-07-07 18:04:48,976 - INFO - __main__ -     Num examples = 3152
+2023-07-07 18:04:48,976 - INFO - __main__ -     Batch size = 48
+2023-07-07 18:04:59,932 - INFO - __main__ -   ***** Eval results  *****
+2023-07-07 18:04:59,932 - INFO - __main__ -     acc = 0.871510152284264
+2023-07-07 18:04:59,932 - INFO - __main__ -     auc = 0.9181784982638329
+2023-07-07 18:04:59,932 - INFO - __main__ -     f1 = 0.8713506079897142
+2023-07-07 18:04:59,932 - INFO - __main__ -     mcc = 0.7459113088932435
+2023-07-07 18:04:59,932 - INFO - __main__ -     precision = 0.8740858859124047
+2023-07-07 18:04:59,932 - INFO - __main__ -     recall = 0.8718288377666257
+2023-07-07 18:04:59,933 - INFO - __main__ -   {"eval_acc": 0.871510152284264, "eval_f1": 0.8713506079897142, "eval_mcc": 0.7459113088932435, "eval_auc": 0.9181784982638329, "eval_precision": 0.8740858859124047, "eval_recall": 0.8718288377666257, "learning_rate": 4.069276260208392e-05, "loss": 0.04586105468333699, "step": 2500}
+2023-07-07 18:05:49,608 - INFO - __main__ -   Loading features from cached file /data3/linming/DNABERT/examples/data/fold5_100_15758/2/after/cached_dev_6-new-12w-0_300_dnaprom
+2023-07-07 18:05:50,160 - INFO - __main__ -   ***** Running evaluation  *****
+2023-07-07 18:05:50,160 - INFO - __main__ -     Num examples = 3152
+2023-07-07 18:05:50,160 - INFO - __main__ -     Batch size = 48
+2023-07-07 18:06:01,198 - INFO - __main__ -   ***** Eval results  *****
+2023-07-07 18:06:01,198 - INFO - __main__ -     acc = 0.8661167512690355
+2023-07-07 18:06:01,198 - INFO - __main__ -     auc = 0.9166692166955491
+2023-07-07 18:06:01,198 - INFO - __main__ -     f1 = 0.8659872046748275
+2023-07-07 18:06:01,198 - INFO - __main__ -     mcc = 0.7345776680700228
+2023-07-07 18:06:01,198 - INFO - __main__ -     precision = 0.8681760878043886
+2023-07-07 18:06:01,198 - INFO - __main__ -     recall = 0.866403718425274
+2023-07-07 18:06:01,199 - INFO - __main__ -   {"eval_acc": 0.8661167512690355, "eval_f1": 0.8659872046748275, "eval_mcc": 0.7345776680700228, "eval_auc": 0.9166692166955491, "eval_precision": 0.8681760878043886, "eval_recall": 0.866403718425274, "learning_rate": 3.7876654463531405e-05, "loss": 0.0530990311037749, "step": 2600}
+2023-07-07 18:06:49,130 - INFO - __main__ -   Loading features from cached file /data3/linming/DNABERT/examples/data/fold5_100_15758/2/after/cached_dev_6-new-12w-0_300_dnaprom
+2023-07-07 18:06:49,783 - INFO - __main__ -   ***** Running evaluation  *****
+2023-07-07 18:06:49,783 - INFO - __main__ -     Num examples = 3152
+2023-07-07 18:06:49,783 - INFO - __main__ -     Batch size = 48
+2023-07-07 18:07:00,796 - INFO - __main__ -   ***** Eval results  *****
+2023-07-07 18:07:00,797 - INFO - __main__ -     acc = 0.8664340101522843
+2023-07-07 18:07:00,797 - INFO - __main__ -     auc = 0.9147528699904013
+2023-07-07 18:07:00,797 - INFO - __main__ -     f1 = 0.8664256072210732
+2023-07-07 18:07:00,797 - INFO - __main__ -     mcc = 0.7332701395999612
+2023-07-07 18:07:00,797 - INFO - __main__ -     precision = 0.8667255208352216
+2023-07-07 18:07:00,797 - INFO - __main__ -     recall = 0.86654464107404
+2023-07-07 18:07:00,800 - INFO - __main__ -   {"eval_acc": 0.8664340101522843, "eval_f1": 0.8664256072210732, "eval_mcc": 0.7332701395999612, "eval_auc": 0.9147528699904013, "eval_precision": 0.8667255208352216, "eval_recall": 0.86654464107404, "learning_rate": 3.506054632497888e-05, "loss": 0.032848580264253545, "step": 2700}
+2023-07-07 18:07:50,599 - INFO - __main__ -   Loading features from cached file /data3/linming/DNABERT/examples/data/fold5_100_15758/2/after/cached_dev_6-new-12w-0_300_dnaprom
+2023-07-07 18:07:51,150 - INFO - __main__ -   ***** Running evaluation  *****
+2023-07-07 18:07:51,151 - INFO - __main__ -     Num examples = 3152
+2023-07-07 18:07:51,151 - INFO - __main__ -     Batch size = 48
+2023-07-07 18:08:02,185 - INFO - __main__ -   ***** Eval results  *****
+2023-07-07 18:08:02,186 - INFO - __main__ -     acc = 0.868020304568528
+2023-07-07 18:08:02,186 - INFO - __main__ -     auc = 0.9012236917546561
+2023-07-07 18:08:02,186 - INFO - __main__ -     f1 = 0.8679475202897833
+2023-07-07 18:08:02,186 - INFO - __main__ -     mcc = 0.7375764232627731
+2023-07-07 18:08:02,186 - INFO - __main__ -     precision = 0.8693278091407619
+2023-07-07 18:08:02,186 - INFO - __main__ -     recall = 0.8682494024879692
+2023-07-07 18:08:02,186 - INFO - __main__ -   {"eval_acc": 0.868020304568528, "eval_f1": 0.8679475202897833, "eval_mcc": 0.7375764232627731, "eval_auc": 0.9012236917546561, "eval_precision": 0.8693278091407619, "eval_recall": 0.8682494024879692, "learning_rate": 3.2244438186426364e-05, "loss": 0.03911498837172985, "step": 2800}
+2023-07-07 18:08:51,322 - INFO - __main__ -   Loading features from cached file /data3/linming/DNABERT/examples/data/fold5_100_15758/2/after/cached_dev_6-new-12w-0_300_dnaprom
+2023-07-07 18:08:51,890 - INFO - __main__ -   ***** Running evaluation  *****
+2023-07-07 18:08:51,891 - INFO - __main__ -     Num examples = 3152
+2023-07-07 18:08:51,891 - INFO - __main__ -     Batch size = 48
+2023-07-07 18:09:02,348 - INFO - __main__ -   ***** Eval results  *****
+2023-07-07 18:09:02,348 - INFO - __main__ -     acc = 0.8692893401015228
+2023-07-07 18:09:02,348 - INFO - __main__ -     auc = 0.9103327304528208
+2023-07-07 18:09:02,348 - INFO - __main__ -     f1 = 0.8692817615492151
+2023-07-07 18:09:02,348 - INFO - __main__ -     mcc = 0.7389668414119117
+2023-07-07 18:09:02,348 - INFO - __main__ -     precision = 0.8695691405368825
+2023-07-07 18:09:02,348 - INFO - __main__ -     recall = 0.8693977207573425
+2023-07-07 18:09:02,348 - INFO - __main__ -   {"eval_acc": 0.8692893401015228, "eval_f1": 0.8692817615492151, "eval_mcc": 0.7389668414119117, "eval_auc": 0.9103327304528208, "eval_precision": 0.8695691405368825, "eval_recall": 0.8693977207573425, "learning_rate": 2.942833004787384e-05, "loss": 0.032274328507483005, "step": 2900}
+2023-07-07 18:09:51,806 - INFO - __main__ -   Loading features from cached file /data3/linming/DNABERT/examples/data/fold5_100_15758/2/after/cached_dev_6-new-12w-0_300_dnaprom
+2023-07-07 18:09:52,364 - INFO - __main__ -   ***** Running evaluation  *****
+2023-07-07 18:09:52,364 - INFO - __main__ -     Num examples = 3152
+2023-07-07 18:09:52,364 - INFO - __main__ -     Batch size = 48
+2023-07-07 18:10:03,377 - INFO - __main__ -   ***** Eval results  *****
+2023-07-07 18:10:03,377 - INFO - __main__ -     acc = 0.8654822335025381
+2023-07-07 18:10:03,377 - INFO - __main__ -     auc = 0.9096579122833013
+2023-07-07 18:10:03,378 - INFO - __main__ -     f1 = 0.8654716175842936
+2023-07-07 18:10:03,378 - INFO - __main__ -     mcc = 0.7314145363902177
+2023-07-07 18:10:03,378 - INFO - __main__ -     precision = 0.8658145111386139
+2023-07-07 18:10:03,378 - INFO - __main__ -     recall = 0.8656000566911684
+2023-07-07 18:10:03,378 - INFO - __main__ -   {"eval_acc": 0.8654822335025381, "eval_f1": 0.8654716175842936, "eval_mcc": 0.7314145363902177, "eval_auc": 0.9096579122833013, "eval_precision": 0.8658145111386139, "eval_recall": 0.8656000566911684, "learning_rate": 2.6612221909321317e-05, "loss": 0.028201773169566877, "step": 3000}
+2023-07-07 18:10:53,559 - INFO - __main__ -   Loading features from cached file /data3/linming/DNABERT/examples/data/fold5_100_15758/2/after/cached_dev_6-new-12w-0_300_dnaprom
+2023-07-07 18:10:54,114 - INFO - __main__ -   ***** Running evaluation  *****
+2023-07-07 18:10:54,114 - INFO - __main__ -     Num examples = 3152
+2023-07-07 18:10:54,114 - INFO - __main__ -     Batch size = 48
+2023-07-07 18:11:05,133 - INFO - __main__ -   ***** Eval results  *****
+2023-07-07 18:11:05,133 - INFO - __main__ -     acc = 0.8616751269035533
+2023-07-07 18:11:05,133 - INFO - __main__ -     auc = 0.904490278753052
+2023-07-07 18:11:05,133 - INFO - __main__ -     f1 = 0.8615571834981424
+2023-07-07 18:11:05,133 - INFO - __main__ -     mcc = 0.7254549768650841
+2023-07-07 18:11:05,133 - INFO - __main__ -     precision = 0.8635093167701864
+2023-07-07 18:11:05,133 - INFO - __main__ -     recall = 0.8619473416351537
+2023-07-07 18:11:05,133 - INFO - __main__ -   {"eval_acc": 0.8616751269035533, "eval_f1": 0.8615571834981424, "eval_mcc": 0.7254549768650841, "eval_auc": 0.904490278753052, "eval_precision": 0.8635093167701864, "eval_recall": 0.8619473416351537, "learning_rate": 2.37961137707688e-05, "loss": 0.024519737312220968, "step": 3100}
+2023-07-07 18:11:53,421 - INFO - __main__ -   Loading features from cached file /data3/linming/DNABERT/examples/data/fold5_100_15758/2/after/cached_dev_6-new-12w-0_300_dnaprom
+2023-07-07 18:11:53,977 - INFO - __main__ -   ***** Running evaluation  *****
+2023-07-07 18:11:53,978 - INFO - __main__ -     Num examples = 3152
+2023-07-07 18:11:53,978 - INFO - __main__ -     Batch size = 48
+2023-07-07 18:12:05,093 - INFO - __main__ -   ***** Eval results  *****
+2023-07-07 18:12:05,093 - INFO - __main__ -     acc = 0.8648477157360406
+2023-07-07 18:12:05,094 - INFO - __main__ -     auc = 0.9053972166568959
+2023-07-07 18:12:05,094 - INFO - __main__ -     f1 = 0.8648189245773779
+2023-07-07 18:12:05,094 - INFO - __main__ -     mcc = 0.7304916642336662
+2023-07-07 18:12:05,094 - INFO - __main__ -     precision = 0.8654828310780629
+2023-07-07 18:12:05,094 - INFO - __main__ -     recall = 0.8650089868386299
+2023-07-07 18:12:05,094 - INFO - __main__ -   {"eval_acc": 0.8648477157360406, "eval_f1": 0.8648189245773779, "eval_mcc": 0.7304916642336662, "eval_auc": 0.9053972166568959, "eval_precision": 0.8654828310780629, "eval_recall": 0.8650089868386299, "learning_rate": 2.098000563221628e-05, "loss": 0.025776419160538352, "step": 3200}
+2023-07-07 18:12:54,810 - INFO - __main__ -   Loading features from cached file /data3/linming/DNABERT/examples/data/fold5_100_15758/2/after/cached_dev_6-new-12w-0_300_dnaprom
+2023-07-07 18:12:55,366 - INFO - __main__ -   ***** Running evaluation  *****
+2023-07-07 18:12:55,366 - INFO - __main__ -     Num examples = 3152
+2023-07-07 18:12:55,366 - INFO - __main__ -     Batch size = 48
+2023-07-07 18:13:06,409 - INFO - __main__ -   ***** Eval results  *****
+2023-07-07 18:13:06,409 - INFO - __main__ -     acc = 0.8600888324873096
+2023-07-07 18:13:06,409 - INFO - __main__ -     auc = 0.9059238647271415
+2023-07-07 18:13:06,409 - INFO - __main__ -     f1 = 0.8598240176436154
+2023-07-07 18:13:06,409 - INFO - __main__ -     mcc = 0.7241621274585398
+2023-07-07 18:13:06,409 - INFO - __main__ -     precision = 0.8636996638331149
+2023-07-07 18:13:06,409 - INFO - __main__ -     recall = 0.8604696670038073
+2023-07-07 18:13:06,411 - INFO - __main__ -   {"eval_acc": 0.8600888324873096, "eval_f1": 0.8598240176436154, "eval_mcc": 0.7241621274585398, "eval_auc": 0.9059238647271415, "eval_precision": 0.8636996638331149, "eval_recall": 0.8604696670038073, "learning_rate": 1.8163897493663757e-05, "loss": 0.013586781664052978, "step": 3300}
+2023-07-07 18:13:55,853 - INFO - __main__ -   Loading features from cached file /data3/linming/DNABERT/examples/data/fold5_100_15758/2/after/cached_dev_6-new-12w-0_300_dnaprom
+2023-07-07 18:13:56,414 - INFO - __main__ -   ***** Running evaluation  *****
+2023-07-07 18:13:56,414 - INFO - __main__ -     Num examples = 3152
+2023-07-07 18:13:56,414 - INFO - __main__ -     Batch size = 48
+2023-07-07 18:14:06,895 - INFO - __main__ -   ***** Eval results  *****
+2023-07-07 18:14:06,895 - INFO - __main__ -     acc = 0.863261421319797
+2023-07-07 18:14:06,895 - INFO - __main__ -     auc = 0.9090742911993404
+2023-07-07 18:14:06,895 - INFO - __main__ -     f1 = 0.8631095137392598
+2023-07-07 18:14:06,895 - INFO - __main__ -     mcc = 0.7291211919714355
+2023-07-07 18:14:06,895 - INFO - __main__ -     precision = 0.8655587839618604
+2023-07-07 18:14:06,895 - INFO - __main__ -     recall = 0.8635651336429874
+2023-07-07 18:14:06,896 - INFO - __main__ -   {"eval_acc": 0.863261421319797, "eval_f1": 0.8631095137392598, "eval_mcc": 0.7291211919714355, "eval_auc": 0.9090742911993404, "eval_precision": 0.8655587839618604, "eval_recall": 0.8635651336429874, "learning_rate": 1.5347789355111237e-05, "loss": 0.0156644865043927, "step": 3400}
+2023-07-07 18:14:56,127 - INFO - __main__ -   Loading features from cached file /data3/linming/DNABERT/examples/data/fold5_100_15758/2/after/cached_dev_6-new-12w-0_300_dnaprom
+2023-07-07 18:14:56,687 - INFO - __main__ -   ***** Running evaluation  *****
+2023-07-07 18:14:56,688 - INFO - __main__ -     Num examples = 3152
+2023-07-07 18:14:56,688 - INFO - __main__ -     Batch size = 48
+2023-07-07 18:15:07,760 - INFO - __main__ -   ***** Eval results  *****
+2023-07-07 18:15:07,760 - INFO - __main__ -     acc = 0.8651649746192893
+2023-07-07 18:15:07,760 - INFO - __main__ -     auc = 0.9079972395266288
+2023-07-07 18:15:07,760 - INFO - __main__ -     f1 = 0.8649975515941445
+2023-07-07 18:15:07,760 - INFO - __main__ -     mcc = 0.7331817577921359
+2023-07-07 18:15:07,760 - INFO - __main__ -     precision = 0.8677018220912103
+2023-07-07 18:15:07,760 - INFO - __main__ -     recall = 0.8654832922107623
+2023-07-07 18:15:07,761 - INFO - __main__ -   {"eval_acc": 0.8651649746192893, "eval_f1": 0.8649975515941445, "eval_mcc": 0.7331817577921359, "eval_auc": 0.9079972395266288, "eval_precision": 0.8677018220912103, "eval_recall": 0.8654832922107623, "learning_rate": 1.2531681216558717e-05, "loss": 0.012920365021273028, "step": 3500}
+2023-07-07 18:15:57,570 - INFO - __main__ -   Loading features from cached file /data3/linming/DNABERT/examples/data/fold5_100_15758/2/after/cached_dev_6-new-12w-0_300_dnaprom
+2023-07-07 18:15:58,121 - INFO - __main__ -   ***** Running evaluation  *****
+2023-07-07 18:15:58,122 - INFO - __main__ -     Num examples = 3152
+2023-07-07 18:15:58,122 - INFO - __main__ -     Batch size = 48
+2023-07-07 18:16:09,158 - INFO - __main__ -   ***** Eval results  *****
+2023-07-07 18:16:09,159 - INFO - __main__ -     acc = 0.8657994923857868
+2023-07-07 18:16:09,159 - INFO - __main__ -     auc = 0.9056621512365762
+2023-07-07 18:16:09,159 - INFO - __main__ -     f1 = 0.8656560358990558
+2023-07-07 18:16:09,159 - INFO - __main__ -     mcc = 0.7341328889410359
+2023-07-07 18:16:09,159 - INFO - __main__ -     precision = 0.8680369277946498
+2023-07-07 18:16:09,159 - INFO - __main__ -     recall = 0.8660985202316607
+2023-07-07 18:16:09,163 - INFO - __main__ -   {"eval_acc": 0.8657994923857868, "eval_f1": 0.8656560358990558, "eval_mcc": 0.7341328889410359, "eval_auc": 0.9056621512365762, "eval_precision": 0.8680369277946498, "eval_recall": 0.8660985202316607, "learning_rate": 9.715573078006197e-06, "loss": 0.013883253647363744, "step": 3600}
+2023-07-07 18:16:57,777 - INFO - __main__ -   Loading features from cached file /data3/linming/DNABERT/examples/data/fold5_100_15758/2/after/cached_dev_6-new-12w-0_300_dnaprom
+2023-07-07 18:16:58,393 - INFO - __main__ -   ***** Running evaluation  *****
+2023-07-07 18:16:58,393 - INFO - __main__ -     Num examples = 3152
+2023-07-07 18:16:58,393 - INFO - __main__ -     Batch size = 48
+2023-07-07 18:17:09,436 - INFO - __main__ -   ***** Eval results  *****
+2023-07-07 18:17:09,436 - INFO - __main__ -     acc = 0.8651649746192893
+2023-07-07 18:17:09,436 - INFO - __main__ -     auc = 0.9034891239926045
+2023-07-07 18:17:09,436 - INFO - __main__ -     f1 = 0.865057388385003
+2023-07-07 18:17:09,436 - INFO - __main__ -     mcc = 0.7323445381886518
+2023-07-07 18:17:09,436 - INFO - __main__ -     precision = 0.8669159010743559
+2023-07-07 18:17:09,436 - INFO - __main__ -     recall = 0.8654301442403705
+2023-07-07 18:17:09,437 - INFO - __main__ -   {"eval_acc": 0.8651649746192893, "eval_f1": 0.865057388385003, "eval_mcc": 0.7323445381886518, "eval_auc": 0.9034891239926045, "eval_precision": 0.8669159010743559, "eval_recall": 0.8654301442403705, "learning_rate": 6.899464939453676e-06, "loss": 0.013494342233752833, "step": 3700}
+2023-07-07 18:17:59,255 - INFO - __main__ -   Loading features from cached file /data3/linming/DNABERT/examples/data/fold5_100_15758/2/after/cached_dev_6-new-12w-0_300_dnaprom
+2023-07-07 18:17:59,808 - INFO - __main__ -   ***** Running evaluation  *****
+2023-07-07 18:17:59,808 - INFO - __main__ -     Num examples = 3152
+2023-07-07 18:17:59,808 - INFO - __main__ -     Batch size = 48
+2023-07-07 18:18:10,794 - INFO - __main__ -   ***** Eval results  *****
+2023-07-07 18:18:10,795 - INFO - __main__ -     acc = 0.8677030456852792
+2023-07-07 18:18:10,795 - INFO - __main__ -     auc = 0.9051499980673465
+2023-07-07 18:18:10,795 - INFO - __main__ -     f1 = 0.8676358850895507
+2023-07-07 18:18:10,795 - INFO - __main__ -     mcc = 0.7368509986532007
+2023-07-07 18:18:10,795 - INFO - __main__ -     precision = 0.8689268020705021
+2023-07-07 18:18:10,795 - INFO - __main__ -     recall = 0.8679248777596681
+2023-07-07 18:18:10,795 - INFO - __main__ -   {"eval_acc": 0.8677030456852792, "eval_f1": 0.8676358850895507, "eval_mcc": 0.7368509986532007, "eval_auc": 0.9051499980673465, "eval_precision": 0.8689268020705021, "eval_recall": 0.8679248777596681, "learning_rate": 4.083356800901155e-06, "loss": 0.01050196844356833, "step": 3800}
+2023-07-07 18:19:00,442 - INFO - __main__ -   Loading features from cached file /data3/linming/DNABERT/examples/data/fold5_100_15758/2/after/cached_dev_6-new-12w-0_300_dnaprom
+2023-07-07 18:19:00,989 - INFO - __main__ -   ***** Running evaluation  *****
+2023-07-07 18:19:00,990 - INFO - __main__ -     Num examples = 3152
+2023-07-07 18:19:00,990 - INFO - __main__ -     Batch size = 48
+2023-07-07 18:19:11,492 - INFO - __main__ -   ***** Eval results  *****
+2023-07-07 18:19:11,492 - INFO - __main__ -     acc = 0.8657994923857868
+2023-07-07 18:19:11,492 - INFO - __main__ -     auc = 0.9078112216302577
+2023-07-07 18:19:11,492 - INFO - __main__ -     f1 = 0.8656825624052091
+2023-07-07 18:19:11,492 - INFO - __main__ -     mcc = 0.7337578157039271
+2023-07-07 18:19:11,493 - INFO - __main__ -     precision = 0.867685221844011
+2023-07-07 18:19:11,493 - INFO - __main__ -     recall = 0.8660743620633009
+2023-07-07 18:19:11,495 - INFO - __main__ -   {"eval_acc": 0.8657994923857868, "eval_f1": 0.8656825624052091, "eval_mcc": 0.7337578157039271, "eval_auc": 0.9078112216302577, "eval_precision": 0.867685221844011, "eval_recall": 0.8660743620633009, "learning_rate": 1.2672486623486344e-06, "loss": 0.007546747556480113, "step": 3900}
+2023-07-07 18:19:33,235 - INFO - __main__ -    global_step = 3945, average loss = 0.13557671055081005
+2023-07-07 18:19:33,235 - INFO - __main__ -   Saving model checkpoint to /data3/linming/DNABERT/examples/output/fold5_100_15758/_fold2
+2023-07-07 18:19:35,754 - INFO - __main__ -   Evaluate the following checkpoints: ['/data3/linming/DNABERT/examples/output/fold5_100_15758/_fold2']
+2023-07-07 18:19:37,734 - INFO - __main__ -   Loading features from cached file /data3/linming/DNABERT/examples/data/fold5_100_15758/2/after/cached_dev_6-new-12w-0_300_dnaprom
+2023-07-07 18:19:38,312 - INFO - __main__ -   ***** Running evaluation  *****
+2023-07-07 18:19:38,312 - INFO - __main__ -     Num examples = 3152
+2023-07-07 18:19:38,312 - INFO - __main__ -     Batch size = 48
+2023-07-07 18:19:49,313 - INFO - __main__ -   ***** Eval results  *****
+2023-07-07 18:19:49,313 - INFO - __main__ -     acc = 0.8657994923857868
+2023-07-07 18:19:49,315 - INFO - __main__ -     auc = 0.9080346846875865
+2023-07-07 18:19:49,315 - INFO - __main__ -     f1 = 0.8656722778606435
+2023-07-07 18:19:49,315 - INFO - __main__ -     mcc = 0.7339042246774303
+2023-07-07 18:19:49,315 - INFO - __main__ -     precision = 0.8678222578224399
+2023-07-07 18:19:49,315 - INFO - __main__ -     recall = 0.8660840253306448
